@@ -1,0 +1,29 @@
+<h1>Listing fossils</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Date available from</th>
+    <th>Date available to</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fossils.each do |fossil| %>
+  <tr>
+    <td><%= fossil.name %></td>
+    <td><%= fossil.description %></td>
+    <td><%= fossil.date_available_from %></td>
+    <td><%= fossil.date_available_to %></td>
+    <td><%= link_to 'Show', fossil %></td>
+    <td><%= link_to 'Edit', edit_fossil_path(fossil) %></td>
+    <td><%= link_to 'Destroy', fossil, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fossil', new_fossil_path %>

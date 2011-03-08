@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @fossil.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @fossil.description %>
+</p>
+
+<p>
+  <b>Date available from:</b>
+  <%= @fossil.date_available_from %>
+</p>
+
+<p>
+  <b>Date available to:</b>
+  <%= @fossil.date_available_to %>
+</p>
+
+
+<%= link_to 'Edit', edit_fossil_path(@fossil) %> |
+<%= link_to 'Back', fossils_path %>
