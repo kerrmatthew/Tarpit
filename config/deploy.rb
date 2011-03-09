@@ -2,7 +2,7 @@ set :application, "Tarpit"
 set :repository,  "file:///Library/Git/tarpit.git"
 set :local_repository,  "matthewkerr@wud-web.com:/Library/Git/tarpit.git"
 
-set :deploy_to, "\"/Volumes/Macintosh HD2/alpha.tarpit/\""
+set :deploy_to, '/Library/WebServer/vhosts/alpha.tarpit/'
 set :use_sudo, false
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
@@ -27,3 +27,11 @@ role :db,  "66.209.94.37", :primary => true # This is where Rails migrations wil
 require "bundler/capistrano"
 
 require File.split(File.expand_path(__FILE__)).first + "/passenger_deploy.rb"
+
+# task :set_config_for_pg_gem, :roles => [:app, :db] do
+#   run "cd #{release_path} && env ARCHFLAGS='-arch x86_64' bundle install"
+#   #  run "cd #{release_path} && env ARCHFLAGS='-arch x86_64' bundle config build.pg --with-pg-config=/usr/local/Cellar/postgresql/9.0.1/bin/pg_config --with-opt-include=/usr/local/Cellar/postgresql/9.0.1/include --with-opt-lib=/usr/local/Cellar/postgresql/9.0.1/lib"
+# 
+# end
+# 
+# before "bundle:install", :set_config_for_pg_gem

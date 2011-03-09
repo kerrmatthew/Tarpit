@@ -44,8 +44,9 @@ test:
 
 production:
   adapter: postgresql
+  username: tarpitdatabaseuser
+  password: gjdlskfgjhldsjfgd
+  host: 66.209.94.37
   encoding: unicode
   database: tarpit_production
   pool: 5
-  username: postgres
-  password:
