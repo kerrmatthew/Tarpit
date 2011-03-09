@@ -1,5 +1,9 @@
 Tarpit::Application.routes.draw do
-  resources :fossils
+  resources :collections, :except => :show
+
+  resources :fossils, :except => :index
+  
+  resources :users, :only => [:index, :new, :create, :edit]
 
   devise_for :users
 
@@ -52,7 +56,7 @@ Tarpit::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "fossils#index"
+  root :to => "collections#index"
 
   # See how all your routes lay out with "rake routes"
 

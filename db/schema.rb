@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110308042540) do
+ActiveRecord::Schema.define(:version => 20110308202814) do
+
+  create_table "collections", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "collections_users", :id => false, :force => true do |t|
+    t.integer "collection_id"
+    t.integer "user_id"
+  end
 
   create_table "fossils", :force => true do |t|
     t.string   "name"
@@ -19,11 +30,11 @@ ActiveRecord::Schema.define(:version => 20110308042540) do
     t.date     "date_available_to"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "fossils_users", :id => false, :force => true do |t|
-    t.integer "fossil_id"
-    t.integer "user_id"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_uploaded_at"
+    t.integer  "collection_id"
   end
 
   create_table "users", :force => true do |t|

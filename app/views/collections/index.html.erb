@@ -1,0 +1,45 @@
+<h1>Listing collections</h1>
+
+
+<% if can?(:read, Collection) %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  
+    <% @collections.each do |collection| %>
+      <% if can? :read, collection %>
+        <tr>
+          <td><%= collection.name %>
+            <ul>
+              <% collection.fossils.each do |fossil| %>
+                <li>
+                  <%= render "fossils/list_item", :fossil => fossil %>
+                </li>
+              <% end %>
+            </ul>
+          </td>
+          <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
+          <td><%= link_to 'Destroy', collection, :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+<% else %>
+  <h2>No Collections availible to you. Try logging in: </h2>
+  <%= form_for("user", :url => user_session_path) do |f| %>
+  <p><%= f.label :login %><br />
+  <%= f.text_field :login %></p>
+
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.submit "Sign in" %></p>
+<% end %>
+<% end %>
+
+<br />
+
+<%= link_to 'New Collection', new_collection_path %>

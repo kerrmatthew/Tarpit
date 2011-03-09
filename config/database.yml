@@ -39,7 +39,7 @@ test:
   encoding: unicode
   database: tarpit_test
   pool: 5
-  username: tarpit
+  username: postgres
   password:
 
 production:
@@ -47,5 +47,5 @@ production:
   encoding: unicode
   database: tarpit_production
   pool: 5
-  username: tarpit
+  username: postgres
   password:

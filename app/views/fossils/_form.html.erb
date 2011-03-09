@@ -1,4 +1,4 @@
-<%= form_for(@fossil) do |f| %>
+<%= form_for @fossil, :html => { :multipart => true } do |f| %>
   <% if @fossil.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@fossil.errors.count, "error") %> prohibited this fossil from being saved:</h2>
@@ -18,6 +18,14 @@
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :collection %><br />
+    <%= f.select :collection_id, options_for_select(Collection.all.collect{|n| [n.name, n.id] }, @fossil.collection.id ) %>
+  </div>
+  <div class="field">
+    <%= f.label :attachment %><br />
+    <%= f.file_field :attachment %>
   </div>
   <div class="field">
     <%= f.label :date_available_from %><br />

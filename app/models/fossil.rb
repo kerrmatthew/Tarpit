@@ -1,4 +1,9 @@
 class Fossil < ActiveRecord::Base
 
-  has_and_belongs_to_many :users
+  validates_presence_of :collection
+  
+  belongs_to :collection
+  
+  has_attached_file :attachment
+  
 end
