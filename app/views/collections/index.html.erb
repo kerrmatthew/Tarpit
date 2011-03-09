@@ -28,15 +28,18 @@
     <% end %>
   </table>
 <% else %>
-  <h2>No Collections availible to you. Try logging in: </h2>
-  <%= form_for("user", :url => user_session_path) do |f| %>
-  <p><%= f.label :login %><br />
-  <%= f.text_field :login %></p>
-
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
-
-  <p><%= f.submit "Sign in" %></p>
+  <h2>No Collections availible to you. </h2>
+  <% unless user_signed_in? %>
+    Try logging in: 
+    <%= form_for("user", :url => user_session_path) do |f| %>
+    <p><%= f.label :login %><br />
+    <%= f.text_field :login %></p>
+  
+    <p><%= f.label :password %><br />
+    <%= f.password_field :password %></p>
+  
+    <p><%= f.submit "Sign in" %></p>
+  <% end %>
 <% end %>
 <% end %>
 
