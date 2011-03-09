@@ -41,5 +41,6 @@
 <% end %>
 
 <br />
-
-<%= link_to 'New Collection', new_collection_path %>
+<% if can? :create, Collection %>
+  <%= link_to 'New Collection', new_collection_path %>
+<% end %>

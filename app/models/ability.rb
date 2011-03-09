@@ -3,11 +3,11 @@ class Ability
 
   def initialize(user)
     
-    if user && user.administrator?
+    if user && user.role == 'admin'
       can :manage, :all
       can :assign_roles, User
 
-    elsif user
+    elsif user && user.role == 'normal'
       can :read, Collection do |collection| 
         user.collections.include?(collection) 
       end

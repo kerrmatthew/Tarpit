@@ -1,11 +1,15 @@
 Tarpit::Application.routes.draw do
+  
   resources :collections, :except => :show
 
-  resources :fossils, :except => :index
+  resources :fossils, :only => [:new, :create, :edit, :update, :destroy]
   
-  resources :users, :only => [:index, :new, :create, :edit]
-
   devise_for :users
+  
+	namespace :admin do 
+    resources :users
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
