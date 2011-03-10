@@ -2,6 +2,7 @@ class CollectionsController < ApplicationController
   # GET /collections
   # GET /collections.xml
   load_and_authorize_resource
+  skip_authorize_resource :only => :index
   def index
     @collections = Collection.all
 
