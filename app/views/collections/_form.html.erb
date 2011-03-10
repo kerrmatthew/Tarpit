@@ -19,7 +19,7 @@
     <% User.normal.all.each do |user| %>
     <div>
       <%= check_box_tag "collection[user_ids][]", user.id, @collection.users.include?(user) %>
-      <strong>user.name</strong> (<%= mail_to user.email %>)
+      <strong><%= user.name %></strong> (<%= mail_to user.email %>)
     </div>
     <% end %>    
   </div>
