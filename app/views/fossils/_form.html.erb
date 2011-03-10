@@ -21,7 +21,8 @@
   </div>
   <div class="field">
     <%= f.label :collection %><br />
-    <%= f.select :collection_id, options_for_select(Collection.all.collect{|n| [n.name, n.id] }, @fossil.collection.id ) %>
+    <%= f.select :collection_id, options_for_select(Collection.all.collect{|n| [n.name, n.id] },
+                                                   ( @fossil.id ? @fossil.collection.id : params[:collection_id] )) %>
   </div>
   <div class="field">
     <%= f.label :attachment %><br />

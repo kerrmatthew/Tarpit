@@ -2,7 +2,7 @@ Tarpit::Application.routes.draw do
   
   resources :collections, :except => :show
 
-  resources :fossils, :only => [:new, :create, :edit, :update, :destroy]
+  resources :fossils
   
   devise_for :users
   

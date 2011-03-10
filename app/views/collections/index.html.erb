@@ -19,6 +19,7 @@
                   <%= render "fossils/list_item", :fossil => fossil %>
                 </li>
               <% end %>
+              <li><%= link_to 'New Fossil', { :controller => 'fossils', :action => 'new', :collection_id => collection.id } %></li>
             </ul>
           </td>
           <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
@@ -28,7 +29,7 @@
     <% end %>
   </table>
 <% else %>
-  <h2>No Collections availible to you. </h2>
+  <h2>No Collections are visible. </h2>
   <% unless user_signed_in? %>
     Try logging in: 
     <%= form_for("user", :url => user_session_path) do |f| %>

@@ -2,12 +2,14 @@ class FossilsController < ApplicationController
   # GET /fossils
   # GET /fossils.xml
   def index
-    @fossils = Fossil.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @fossils }
-    end
+  
+  redirect_to collections_path
+#     @fossils = Fossil.all
+# 
+#     respond_to do |format|
+#       format.html # index.html.erb
+#       format.xml  { render :xml => @fossils }
+#     end
   end
 
   # GET /fossils/1
