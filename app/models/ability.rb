@@ -3,24 +3,19 @@ class Ability
 
   def initialize(user)
     
-    if user && user.role == 'admin'
+    user ||= User.new # guest user (not logged in)
+
+    if user.role == 'admin'
       can :manage, :all
       can :assign_roles, User
 
-    elsif user && user.role == 'normal'
-    
-      can :read, Collection do |collection| 
-        user.collections.include?(collection) 
-      end
+    elsif user.role == 'normal'
+      can :read, Collection, :id =>  user.collection_ids
+      can :read, Collection, :public => true
+
       
-      
-      cannot [:manage], Fossil.all
-#       can [:read, :create], Fossil do |fossil| 
-#         user.collections.collect{|c| c.fossils}.flatten.include? fossil
-#       end
-      
-      cannot [:manage], User.all
-      
+    else  # non logged in user
+      can :read, Collection, :public => true
     end
     
     # Define abilities for the passed in user here. For example:

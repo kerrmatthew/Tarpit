@@ -2,9 +2,9 @@ class CollectionsController < ApplicationController
   # GET /collections
   # GET /collections.xml
   load_and_authorize_resource
-  skip_authorize_resource :only => :index
+  #skip_authorize_resource :only => :index
   def index
-    @collections = Collection.all
+  #  @collections = Collection.all Superceded by load_and_authorize_resorce
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class CollectionsController < ApplicationController
   # GET /collections/1
   # GET /collections/1.xml
   def show
-    @collection = Collection.find(params[:id])
+    #@collection = Collection.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +26,7 @@ class CollectionsController < ApplicationController
   # GET /collections/new
   # GET /collections/new.xml
   def new
-    @collection = Collection.new
+    #@collection = Collection.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,13 +36,13 @@ class CollectionsController < ApplicationController
 
   # GET /collections/1/edit
   def edit
-    @collection = Collection.find(params[:id])
+    #@collection = Collection.find(params[:id])
   end
 
   # POST /collections
   # POST /collections.xml
   def create
-    @collection = Collection.new(params[:collection])
+   # @collection = Collection.new(params[:collection])
 
     respond_to do |format|
       if @collection.save
@@ -60,7 +60,7 @@ class CollectionsController < ApplicationController
   def update
     params[:collection][:user_ids] ||= []
 
-    @collection = Collection.find(params[:id])
+  #  @collection = Collection.find(params[:id])
     
 
     respond_to do |format|
@@ -77,7 +77,7 @@ class CollectionsController < ApplicationController
   # DELETE /collections/1
   # DELETE /collections/1.xml
   def destroy
-    @collection = Collection.find(params[:id])
+  #  @collection = Collection.find(params[:id])
     @collection.destroy
 
     respond_to do |format|
