@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   
   ROLES = %w[admin normal]
   
+  scope :admin, where(:role => "admin")
+  scope :normal, where(:role => "normal")
+  
    protected
 
  def self.find_for_database_authentication(conditions)

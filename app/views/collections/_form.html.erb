@@ -16,7 +16,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <% User.all.each do |user| %>
+    <% User.normal.all.each do |user| %>
     <div>
       <%= check_box_tag "collection[user_ids][]", user.id, @collection.users.include?(user) %>
       <%= user.email %>

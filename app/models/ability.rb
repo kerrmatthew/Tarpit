@@ -8,12 +8,15 @@ class Ability
       can :assign_roles, User
 
     elsif user && user.role == 'normal'
+    
       can :read, Collection do |collection| 
         user.collections.include?(collection) 
       end
+      
       can [:read, :create], Fossil do |fossil| 
         user.collections.collect{|c| c.fossils}.flatten.include? fossil
       end
+      
     end
     
     # Define abilities for the passed in user here. For example:
