@@ -1,6 +1,7 @@
 class CollectionsController < ApplicationController
   # GET /collections
   # GET /collections.xml
+  load_and_authorize_resource
   def index
     @collections = Collection.all
 

@@ -13,9 +13,13 @@ class Ability
         user.collections.include?(collection) 
       end
       
-      can [:read, :create], Fossil do |fossil| 
-        user.collections.collect{|c| c.fossils}.flatten.include? fossil
-      end
+      
+      cannot [:manage], Fossil.all
+#       can [:read, :create], Fossil do |fossil| 
+#         user.collections.collect{|c| c.fossils}.flatten.include? fossil
+#       end
+      
+      cannot [:manage], User.all
       
     end
     

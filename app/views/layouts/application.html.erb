@@ -13,8 +13,10 @@
       <%= link_to_unless_current 'Collections', collections_path do  %>
         <span class="current">Collections</span>
       <% end %>
-      <%= link_to_unless_current 'Users', admin_users_path do  %>
-        <span class="current">Users</span>
+      <% if can? :read, User %>
+        <%= link_to_unless_current 'Users', admin_users_path do  %>
+          <span class="current">Users</span>
+        <% end %>
       <% end %>
 
     </div>
