@@ -1,9 +1,72 @@
-body { background-color: #fff; color: #333; }
+/* @override 
+	http://filmtiki.net/stylesheets/scaffold.css?1299731520
+	http://local.tarpit/stylesheets/scaffold.css?1299556930
+*/
+
+#header {
+	background-color: #000;
+	color: #fffeff;
+	padding: 1em;
+}
+
+
+#header a {
+	color: #fffeff;
+	text-decoration: none;
+	background-color: #525252;
+}
+
+
+#meta {
+	float: right;
+}
+
+#indexes {
+	float: left;
+}
+
+#indexes a, #meta li a, #indexes .current {
+	padding: 0.5em 1em;
+}
+
+#indexes .current {
+	font-weight: bold;
+
+}
+
+#indexes a:hover, #meta li a:hover, #indexes .current {
+	background-color: #6b6b6b;
+	border-bottom-style: solid;
+	border-bottom-color: #737373;
+}
+
+
+#meta li {
+	display: inline-block;
+}
+
+#main-container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 20px;
+	padding-left: 20px;
+	width: 960px;
+}
+
+
+
+
+body { background-color: #fff;
+	margin: 0;
+	padding: 0;
+}
 
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: baskerville, georgia, serif;
   font-size:   13px;
   line-height: 18px;
+	word-spacing: 3px;
+	letter-spacing: 0.07pc;
 }
 
 pre {
@@ -54,3 +117,4 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
