@@ -12,10 +12,17 @@ class Ability
     elsif user.role == 'normal'
       can :read, Collection, :id =>  user.collection_ids
       can :read, Collection, :public => true
+      
+      cannot :manage, Fossil
+      can :manage, Fossil, :collection => { :id => user.collection_ids }
+      
+      cannot :manage, User
+      can :manage, User, :id => user.id
 
       
     else  # non logged in user
       can :read, Collection, :public => true
+      cannot :manage, User
     end
     
     # Define abilities for the passed in user here. For example:

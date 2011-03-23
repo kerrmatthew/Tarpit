@@ -26,12 +26,17 @@ gem 'pg'
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-# group :development, :test do
+ group :development, :test do
 #   gem 'webrat'
-# end
+  gem 'rspec-rails'
+  gem 'autotest'
+  gem 'autotest-growl'
+ end
 
 gem 'devise'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'thor', '>= 0.14.4'
 gem 'paperclip'
 gem "cancan"
+
+gem 'haml'

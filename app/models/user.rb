@@ -27,13 +27,13 @@ class User < ActiveRecord::Base
  # password instructions to it. If not user is found, returns a new user
  # with an email not found error.
  def self.send_reset_password_instructions(attributes={})
-   recoverable = find_recoverable_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
+   recoverable = find_recoverable_or_initialize_with_errors([:login], attributes, :not_found)
    recoverable.send_reset_password_instructions if recoverable.persisted?
    recoverable
  end 
 
  def self.find_recoverable_or_initialize_with_errors(required_attributes, attributes, error=:invalid)
-   case_insensitive_keys.each { |k| attributes[k].try(:downcase!) }
+   [:login, :email].each { |k| attributes[k].try(:downcase!) }
 
    attributes = attributes.slice(*required_attributes)
    attributes.delete_if { |key, value| value.blank? }
@@ -60,7 +60,8 @@ class User < ActiveRecord::Base
  end
 
  def self.find_record(login)
-   where(attributes).where(["username = :value OR email = :value", { :value => login }]).first
+   #where(attributes).where(["username = :value OR email = :value", { :value => login }]).first if attributes
+   where(["name = :value OR email = :value", { :value => login }]).first 
  end
 
 

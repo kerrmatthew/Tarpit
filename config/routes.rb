@@ -4,6 +4,14 @@ Tarpit::Application.routes.draw do
 
   resources :fossils
   
+#   resources :fossil_download, :only       => [:create],
+#                               :controller => :fossil, 
+#                               :path_names => { :create => "download" }
+#                               :path       => '/fossil/:id/:style/:name.:extension'
+
+  match 'fossils/:id/:style.:format', :controller => 'fossils', :action => 'download', :conditions => { :method => :get }
+
+  
   devise_for :users
   
 	namespace :admin do 

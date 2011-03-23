@@ -83,4 +83,22 @@ class FossilsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+   
+  def download
+    head(:not_found) and return if (fossil = Fossil.find_by_id(params[:id])).nil?
+
+    path = fossil.attachment.path(params[:style])
+    head(:bad_request) and return unless File.exist?(path) && params[:format].to_s == File.extname(path).gsub(/^\.+/, '')
+
+    send_file_options = { :type => fossil.attachment_content_type }
+
+    send_file_options[:x_sendfile] = true
+
+    send_file(path, send_file_options)
+  end
+
+
+  
+  
 end

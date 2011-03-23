@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    ZenTest (4.5.0)
     abstract (1.0.0)
     actionmailer (3.0.3)
       actionpack (= 3.0.3)
@@ -29,20 +30,30 @@ GEM
       activesupport (= 3.0.3)
     activesupport (3.0.3)
     arel (2.0.9)
+    autotest (4.4.6)
+      ZenTest (>= 4.4.1)
+    autotest-growl (0.2.9)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
-    cancan (1.5.1)
-    capistrano (2.5.19)
+    cancan (1.6.2)
+    capistrano (2.5.20)
+      highline
       highline
       net-scp (>= 1.0.0)
+      net-scp
+      net-sftp
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
+      net-ssh
+      net-ssh-gateway
       net-ssh-gateway (>= 1.0.0)
-    devise (1.1.7)
+    devise (1.1.8)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
+    diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    haml (3.0.25)
     highline (1.6.1)
     i18n (0.5.0)
     jquery-rails (0.2.7)
@@ -66,7 +77,7 @@ GEM
       activesupport
     pg (0.10.1)
     polyglot (0.3.1)
-    rack (1.2.1)
+    rack (1.2.2)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
     rack-test (0.5.7)
@@ -85,10 +96,23 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    rspec (2.5.0)
+      rspec-core (~> 2.5.0)
+      rspec-expectations (~> 2.5.0)
+      rspec-mocks (~> 2.5.0)
+    rspec-core (2.5.1)
+    rspec-expectations (2.5.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.5.0)
+    rspec-rails (2.5.0)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      railties (~> 3.0)
+      rspec (~> 2.5.0)
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.24)
+    tzinfo (0.3.25)
     warden (1.0.3)
       rack (>= 1.0.0)
 
@@ -96,11 +120,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autotest
+  autotest-growl
   cancan
   capistrano
   devise
+  haml
   jquery-rails (>= 0.2.6)
   paperclip
   pg
   rails (= 3.0.3)
+  rspec-rails
   thor (>= 0.14.4)
