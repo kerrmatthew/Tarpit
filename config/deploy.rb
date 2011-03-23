@@ -48,10 +48,10 @@ end
 namespace :htaccess do 
   desc ".htacess tasks"
   task :reset, :roles => [:app] do 
-    run "rm #{release_path}/.htaccess"
-    run "touch #{release_path}/.htaccess"
-    run "echo 'XSendFile On' >> #{release_path}/.htaccess"
-    run "echo 'XSendFileAllowAbove on' >> #{release_path}/.htaccess"
+    run "rm #{release_path}/public/.htaccess"
+    run "touch #{release_path}/public/.htaccess"
+    run "echo 'XSendFile On' >> #{release_path}/public/.htaccess"
+    run "echo 'XSendFileAllowAbove on' >> #{release_path}/public/.htaccess"
   end
 end
 
