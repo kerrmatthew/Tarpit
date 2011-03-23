@@ -1,0 +1,42 @@
+=form_for @fossil, :html => { :multipart => true } do |f| 
+  -if @fossil.errors.any? 
+    #error_explanation
+      %h2
+        =pluralize(@fossil.errors.count, "error") 
+        prohibited this fossil from being saved:
+        
+      %ul
+        -@fossil.errors.full_messages.each do |msg| 
+          %li=msg
+
+  .field
+    =f.label :name 
+    %br 
+    =f.text_field :name
+    
+  .field
+    =f.label :description
+    %br 
+    =f.text_area :description
+    
+  .field
+    =f.label :collection 
+    %br
+    =f.select :collection_id, options_for_select(Collection.all.collect{|n| [n.name, n.id] }, ( @fossil.id ? @fossil.collection.id : params[:collection_id] ))
+
+  .field
+    =f.label :attachment
+    %br 
+    =f.file_field :attachment
+    
+  .field
+    =f.label :date_available_from 
+    %br 
+    =f.date_select :date_available_from
+    
+  .field
+    =f.label :date_available_to 
+    %br 
+    =f.date_select :date_available_to
+    
+  .actions=f.submit 

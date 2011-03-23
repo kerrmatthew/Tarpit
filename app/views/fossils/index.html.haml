@@ -1,0 +1,19 @@
+%h1 Listing fossils
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Attachment
+    %th Date available from
+    %th Date available to
+    %th 
+    %th 
+    %th 
+
+  -@fossils.each do |fossil| 
+    -if can? :read, fossil 
+
+%br
+
+=link_to 'New Fossil', new_fossil_path 

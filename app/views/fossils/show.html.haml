@@ -1,0 +1,33 @@
+%p
+  %strong Name:
+  =@fossil.name
+
+%p
+  %strong Description:
+  =@fossil.description
+%p
+  %strong Collection:
+  =@fossil.collection.name
+
+%p  
+  %strong Will be visible by:
+  =@fossil.collection.users.map(&:email).join(", ")
+
+%p
+  %strong Attachment:
+  =link_to "Download #{@fossil.attachment_file_name}", @fossil.attachment.url
+  –
+  =@fossil.attachment_file_size 
+  Bytes
+  ==(#{@fossil.attachment_content_type})
+
+%p
+  %strong Date available from:
+  =@fossil.date_available_from 
+
+%p
+  %strong Date available to:
+  =@fossil.date_available_to
+
+=link_to 'Edit', edit_fossil_path(@fossil)
+=link_to 'Back', fossils_path

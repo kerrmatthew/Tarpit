@@ -1,0 +1,25 @@
+=form_for(@collection) do |f| 
+  -if @collection.errors.any?
+    #error_explanation
+      %h2== #{pluralize(@collection.errors.count, "error")} prohibited this collection from being saved:
+
+      %ul
+        -@collection.errors.full_messages.each do |msg| 
+          %li= msg 
+
+  .field
+    =f.label :name
+    %br
+    =f.text_field :name
+
+  .field
+    =f.check_box :public
+    =f.label :public
+    
+  .field
+    -User.normal.all.each do |user| 
+      %div
+        =check_box_tag "collection[user_ids][]", user.id, @collection.users.include?(user) 
+        %strong=user.name 
+        ==(#{mail_to user.email})
+  .actions= f.submit 

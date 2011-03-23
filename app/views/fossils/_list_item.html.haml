@@ -1,0 +1,16 @@
+%strong=fossil.name 
+–
+= fossil.description
+%br
+=link_to "Download #{fossil.attachment_file_name}", fossil.attachment.url
+–
+=fossil.attachment_file_size 
+==Bytes (#{fossil.attachment_content_type})
+%br
+
+-if can? :update, fossil
+  .collection-item-edit
+    =link_to 'Edit', edit_fossil_path(fossil) 
+  
+    -if can? :destroy, fossil 
+      =link_to 'Destroy', fossil, :confirm => 'Are you sure?', :method => :delete  
