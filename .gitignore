@@ -4,5 +4,6 @@ log/*.log
 tmp/**/*
 public/system/
 public/system/*
+public/.htaccess
 assets/*
 assets/

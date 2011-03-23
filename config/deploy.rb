@@ -1,3 +1,4 @@
+
 set :application, "Tarpit"
 set :repository,  "file:///Library/Git/tarpit.git"
 set :local_repository,  "matthewkerr@wud-web.com:/Library/Git/tarpit.git"
@@ -43,4 +44,16 @@ namespace :paperclip do
     run "mkdir -p #{shared_path}/assets && ln -nfs #{shared_path}/assets #{release_path}/assets"
   end
 end
+
+namespace :htaccess do 
+  desc ".htacess tasks"
+  task :reset, :roles => [:app] do 
+    run "rm #{release_path}/.htaccess"
+    run "touch #{release_path}/.htaccess"
+    run "echo 'XSendFile On' >> #{release_path}/.htaccess"
+    run "echo 'XSendFileAllowAbove on' >> #{release_path}/.htaccess"
+  end
+end
+
 after 'deploy:update_code', 'paperclip:symlink'
+after 'deploy:update_code', 'htaccess:reset'
