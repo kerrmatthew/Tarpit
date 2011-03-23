@@ -7,7 +7,6 @@
     =stylesheet_link_tag :all 
     =javascript_include_tag :defaults 
     =csrf_meta_tag 
-
   %body
     #header
       #indexes
@@ -19,16 +18,17 @@
           =link_to_unless_current 'Users', admin_users_path do
             %span.current
               Users
-
-      #meta
-        =render 'devise/menu/registration_items'
-        =render 'devise/menu/login_items'
-        
+      
+      
+        #meta
+          =render 'devise/menu/registration_items'
+          =render 'devise/menu/login_items'
+      
       %p.notice
         =notice
         
       %p.alert
         =alert
-        
+      #clear  
     #main-container
       =yield
