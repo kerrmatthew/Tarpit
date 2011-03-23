@@ -75,7 +75,7 @@ class FossilsController < ApplicationController
   # DELETE /fossils/1
   # DELETE /fossils/1.xml
   def destroy
-   # @fossil = Fossil.find(params[:id])
+    # @fossil = Fossil.find(params[:id])
     @fossil.destroy
 
     respond_to do |format|
@@ -91,9 +91,9 @@ class FossilsController < ApplicationController
     path = fossil.attachment.path(params[:style])
     head(:bad_request) and return unless File.exist?(path) && params[:format].to_s == File.extname(path).gsub(/^\.+/, '')
 
-    send_file_options = {  }
+    send_file_options = { :url_based_filename => true }
 
-#    send_file_options[:x_sendfile] = true
+    send_file_options[:x_sendfile] = true
 
     send_file(path, send_file_options)
   end
