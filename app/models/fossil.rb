@@ -8,7 +8,7 @@ class Fossil < ActiveRecord::Base
   
   has_attached_file :attachment,
                     :url => '/:class/:id/:style.:extension',
-                    :path => ':rails_root/assets/:class/:id_partition/:style/:filename'
+                    :path => ':rails_root/assets/:class/:id/:style/:filename'
 
   
 end

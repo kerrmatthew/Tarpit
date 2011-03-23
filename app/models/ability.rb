@@ -22,6 +22,7 @@ class Ability
       
     else  # non logged in user
       can :read, Collection, :public => true
+      can :download, Fossil, :collection => { :public => true }
       cannot :manage, User
     end
     
