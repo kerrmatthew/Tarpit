@@ -91,17 +91,9 @@ class FossilsController < ApplicationController
     path = fossil.attachment.path(params[:style])
     head(:bad_request) and return unless File.exist?(path) 
 
-    send_file_options = {  }
-
-    send_file_options[:x_sendfile] = true
+    send_file_options = { :type => fossil.attachment_content_type, :x_sendfile => true }
     
     send_file(path, send_file_options)
-    
-    
-#     response.headers['X-Sendfile'] = path
-#     response.headers['Content-Disposition'] = "attachment; filename=#{fossil.attachment_file_name}"
-#     render :nothing => true
-
     
   end
 
