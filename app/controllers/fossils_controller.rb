@@ -91,10 +91,10 @@ class FossilsController < ApplicationController
     path = fossil.attachment.path(params[:style])
     head(:bad_request) and return unless File.exist?(path) && params[:format].to_s == File.extname(path).gsub(/^\.+/, '')
 
-    send_file_options = { :url_based_filename => true }
+    send_file_options = { :disposition => 'inline' }
 
-    send_file_options[:x_sendfile] = true
-
+    send_file_options[:x_sendfile] = false
+    
     send_file(path, send_file_options)
   end
 
