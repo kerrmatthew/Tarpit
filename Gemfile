@@ -34,6 +34,8 @@ gem 'pg'
  end
 
 gem 'devise'
+gem 'devise_invitable'
+
 gem 'jquery-rails', '>= 0.2.6'
 gem 'thor', '>= 0.14.4'
 gem 'paperclip'
