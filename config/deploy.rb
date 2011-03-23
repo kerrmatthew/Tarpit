@@ -35,3 +35,12 @@ require File.split(File.expand_path(__FILE__)).first + "/passenger_deploy.rb"
 # end
 # 
 # before "bundle:install", :set_config_for_pg_gem
+
+
+namespace :paperclip do
+  desc "Symlink the assets folder"
+  task :symlink, :roles => [:app] do
+    run "mkdir -p #{shared_path}/assets && ln -nfs #{shared_path}/assets #{release_path}/assets"
+  end
+end
+after 'deploy:update_code', 'paperclip:symlink'
