@@ -93,7 +93,7 @@ class FossilsController < ApplicationController
 
     send_file_options = { :disposition => 'inline' }
 
-    send_file_options[:x_sendfile] = false
+    send_file_options[:x_sendfile] = true
     
     send_file(path, send_file_options)
   end
