@@ -89,13 +89,20 @@ class FossilsController < ApplicationController
     head(:not_found) and return if (fossil = Fossil.find_by_id(params[:id])).nil?
 
     path = fossil.attachment.path(params[:style])
-    head(:bad_request) and return unless File.exist?(path) && params[:format].to_s == File.extname(path).gsub(/^\.+/, '')
+    head(:bad_request) and return unless File.exist?(path) 
 
-    send_file_options = { :disposition => 'inline' }
+    send_file_options = {  }
 
     send_file_options[:x_sendfile] = true
     
     send_file(path, send_file_options)
+    
+    
+#     response.headers['X-Sendfile'] = path
+#     response.headers['Content-Disposition'] = "attachment; filename=#{fossil.attachment_file_name}"
+#     render :nothing => true
+
+    
   end
 
 

@@ -7,7 +7,7 @@ class Fossil < ActiveRecord::Base
   belongs_to :collection
   
   has_attached_file :attachment,
-                    :url => '/:class/:id/:style.:extension',
+                    :url => '/:class/:id/:style',
                     :path => ':rails_root/assets/:class/:id/:style/:filename'
 
   
