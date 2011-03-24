@@ -2,5 +2,5 @@ require 'exception_notifier'
 
 Tarpit::Application.config.middleware.use ExceptionNotifier,
     :email_prefix => "Tarpit",
-    :sender_address => "errors@wud-web.com",
+    :sender_address => "tarpit_errors@tarpit_errors",
     :exception_recipients => 'kerr.matthew@gmail.com'
