@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   
   has_and_belongs_to_many :collections
   
-  ROLES = %w[admin normal]
+  ROLES = %w[normal admin]
   
   scope :admin, where(:role => "admin")
   scope :normal, where(:role => "normal")
