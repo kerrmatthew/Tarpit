@@ -29,13 +29,13 @@ require "bundler/capistrano"
 
 require File.split(File.expand_path(__FILE__)).first + "/passenger_deploy.rb"
 
-# task :set_config_for_pg_gem, :roles => [:app, :db] do
-#   run "cd #{release_path} && env ARCHFLAGS='-arch x86_64' bundle install"
-#   #  run "cd #{release_path} && env ARCHFLAGS='-arch x86_64' bundle config build.pg --with-pg-config=/usr/local/Cellar/postgresql/9.0.1/bin/pg_config --with-opt-include=/usr/local/Cellar/postgresql/9.0.1/include --with-opt-lib=/usr/local/Cellar/postgresql/9.0.1/lib"
-# 
-# end
-# 
-# before "bundle:install", :set_config_for_pg_gem
+task :set_config_for_pg_gem, :roles => [:app, :db] do
+  run "cd #{release_path} && env ARCHFLAGS='-arch x86_64' bundle install"
+  #  run "cd #{release_path} && env ARCHFLAGS='-arch x86_64' bundle config build.pg --with-pg-config=/usr/local/Cellar/postgresql/9.0.1/bin/pg_config --with-opt-include=/usr/local/Cellar/postgresql/9.0.1/include --with-opt-lib=/usr/local/Cellar/postgresql/9.0.1/lib"
+
+end
+
+before "bundle:install", :set_config_for_pg_gem
 
 
 namespace :paperclip do
