@@ -3,7 +3,7 @@ set :application, "Tarpit"
 set :repository,  "file:///Library/Git/tarpit.git"
 set :local_repository,  "matthewkerr@wud-web.com:/Library/Git/tarpit.git"
 
-set :deploy_to, '/Library/WebServer/vhosts/alpha.tarpit/'
+set :deploy_to, '/Library/WebServer/vhosts/tarpit/'
 set :use_sudo, false
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
