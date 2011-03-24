@@ -6,6 +6,9 @@ set :local_repository,  "matthewkerr@wud-web.com:/Library/Git/tarpit.git"
 set :deploy_to, '/Library/WebServer/vhosts/tarpit/'
 set :use_sudo, false
 set :scm, :git
+
+default_run_options[:pty] = true
+
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 role :web, "66.209.94.37"                          # Your HTTP server, Apache/etc
@@ -30,8 +33,8 @@ require "bundler/capistrano"
 require File.split(File.expand_path(__FILE__)).first + "/passenger_deploy.rb"
 
 task :set_config_for_pg_gem, :roles => [:app, :db] do
-#  run "#{sudo} env ARCHFLAGS=\"-arch x86_64\" gem install pg"
- # run "cd #{release_path} && bundle config build.pg --with-pg-config=/usr/local/Cellar/postgresql/9.0.1/bin/pg_config --with-opt-include=/usr/local/Cellar/postgresql/9.0.1/include --with-opt-lib=/usr/local/Cellar/postgresql/9.0.1/lib && #{sudo} env ARCHFLAGS='-arch x86_64' gem install pg"
+  #run "#{sudo( :SUDO_PASSWORD => "" )} env ARCHFLAGS=\"-arch x86_64\" gem install pg"
+  run "cd #{release_path} && bundle config build.pg --with-pg-config=/usr/local/Cellar/postgresql/9.0.1/bin/pg_config --with-opt-include=/usr/local/Cellar/postgresql/9.0.1/include --with-opt-lib=/usr/local/Cellar/postgresql/9.0.1/lib && #{sudo( :SUDO_PASSWORD => "" )} env ARCHFLAGS=\'-arch x86_64\' bundle:install"
 
 end
 
