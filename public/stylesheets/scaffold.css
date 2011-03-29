@@ -8,6 +8,14 @@ body {
 	margin: 0;
 }
 
+ul {
+  margin-left: 0;
+  padding: 0;
+
+}
+
+
+
 #header {
 	background-color: #000;
 	color: #fffeff;
@@ -75,7 +83,7 @@ body { background-color: #fff;
 }
 
 body, p, ol, ul, td {
-  font-family: baskerville, georgia, serif;
+  font-family: futura, georgia, serif;
   font-size:   13px;
   line-height: 18px;
 	word-spacing: 3px;
@@ -113,8 +121,18 @@ div.field, div.actions {
   font-weight: bold;
 }
 
+
 .collection-items {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
+  list-style: none;
+  list-style-position: outside;
+}
+
+.collection-items, .collection-items a {
+  color: #666666;
+}
+.collection-items strong {
+  color: #000000;
 }
 
 .collection-item-edit, .collection-item-edit a {
