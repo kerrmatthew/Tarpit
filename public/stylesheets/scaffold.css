@@ -57,9 +57,7 @@ ul ul#meta {
 #indexes li.alert, #indexes li.notice {
 	padding-top: 7px;
 	height: 25px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 245px;
+	margin-left: 55px;
 }
 
 #indexes a, #meta li a, #indexes .current {
