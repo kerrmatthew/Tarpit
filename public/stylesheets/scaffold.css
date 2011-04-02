@@ -1,4 +1,8 @@
-/* @override http://tarpit.flyingnun.co.nz/stylesheets/scaffold.css?1301706268 */
+/* @override 
+	http://tarpit.flyingnun.co.nz/stylesheets/scaffold.css?1301706268
+	http://local.tarpit/stylesheets/scaffold.css?1301707588
+	http://local.tarpit/stylesheets/scaffold.css?1301709209
+*/
 
 html {
 	padding: 0;
@@ -18,33 +22,49 @@ ul {
 
 
 
-#header {
-	background-color: #000;
-	color: #fffeff;
-	padding: 5px 0 0;
-	margin: 0;
-}
 
 
-#header a {
+#indexes a {
 	color: #fffeff;
 	text-decoration: none;
 	background-color: #525252;
 }
 
+ul ul#meta {
+	float: right;
+}
 
-#meta {
+
+#indexes li {
+	padding-bottom: 0;
+	margin: 0 10px;
+	list-style-type: none;
+	display: block;
+	float: left;
+	height: 34px;
+	overflow: hidden;
 }
 
 #indexes {
-	padding-right: 10px;
-	padding-left: 10px;
+	background-color: #000;
+	color: #fffeff;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 34px;
+}
+
+#indexes li.alert, #indexes li.notice {
+	padding-top: 7px;
+	height: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 245px;
 }
 
 #indexes a, #meta li a, #indexes .current {
 	padding: 0.5em 1em;
 	float: left;
-	margin-right: 5px;
 		border-bottom-style: solid;
 	border-bottom-color: #000;
 	color: #e3e3e3;
@@ -64,7 +84,6 @@ ul {
 
 
 #meta li {
-	list-style-type: none;
 	float: right;
 }
 

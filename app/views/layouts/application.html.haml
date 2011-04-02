@@ -8,28 +8,25 @@
     =javascript_include_tag :defaults 
     =csrf_meta_tag 
   %body
-    #header
-      #indexes
+    %ul#indexes
+      %li
         =link_to_unless_current 'Collections', collections_path do  
           %span.current
             Collections
-        
-        -if can? :read, User
+      
+      -if can? :read, User
+        %li
           =link_to_unless_current 'Users', admin_users_path do
             %span.current
               Users
-      
-        #meta
-          =render 'devise/menu/registration_items'
-          =render 'devise/menu/login_items'
-        .clear
-      
-      %p.notice
-        =notice
-        
-      %p.alert
-        =alert
-      .clear
-      
+              
+      %li.notice=notice if notice
+    
+      %li.alert=alert if alert
+                          
+      %ul#meta
+        =render 'devise/menu/registration_items'
+        =render 'devise/menu/login_items'
+    
     #main-container
       =yield
