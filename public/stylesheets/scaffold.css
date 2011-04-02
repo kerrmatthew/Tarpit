@@ -1,3 +1,5 @@
+/* @override http://tarpit.flyingnun.co.nz/stylesheets/scaffold.css?1301706268 */
+
 html {
 	padding: 0;
 	margin: 0;
@@ -21,7 +23,6 @@ ul {
 	color: #fffeff;
 	padding: 5px 0 0;
 	margin: 0;
-	height: 33px;
 }
 
 
@@ -46,18 +47,19 @@ ul {
 	margin-right: 5px;
 		border-bottom-style: solid;
 	border-bottom-color: #000;
-
+	color: #e3e3e3;
 }
 
 #indexes .current {
-	font-weight: bold;
-
+	font-weight: ;
+	text-decoration: underline;
 }
 
 #indexes a:hover, #meta li a:hover, #indexes .current {
 	background-color: #6b6b6b;
 	border-bottom-style: solid;
 	border-bottom-color: #737373;
+	color: #fefffe;
 }
 
 
@@ -83,11 +85,7 @@ body { background-color: #fff;
 }
 
 body, p, ol, ul, td {
-  font-family: futura, georgia, serif;
-  font-size:   13px;
-  line-height: 18px;
-	word-spacing: 3px;
-	letter-spacing: 0.07pc;
+	font: 13px/1.5em "Gill Sans MT", "Univers LT Std", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 pre {
