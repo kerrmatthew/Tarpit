@@ -6,3 +6,7 @@ en:
     attributes:
       user:  
         login: "Username or email"
+  unauthorized:
+    manage:
+      all: "Not authorized to %{action} %{subject}."
+      user: "Not allowed to manage other user accounts."

@@ -73,10 +73,6 @@ ul {
 
 }
 
-
-
-
-
 #indexes a {
 	color: #fffeff;
 	text-decoration: none;
@@ -111,6 +107,8 @@ ul ul#meta {
 	padding-top: 7px;
 	height: 25px;
 	margin-left: 55px;
+	font-size: 14px;
+	color: red;
 }
 
 #indexes a, #meta li a, #indexes .current {
