@@ -2,6 +2,6 @@
 
 =render 'form' 
 
-=link_to 'Show', @fossil
+=link_to 'Show', [@fossil.collection, @fossil]
 |
-=link_to 'Back', fossils_path
+=link_to 'Back', collection_fossils_path(@collection)

@@ -1,15 +1,13 @@
 Tarpit::Application.routes.draw do
   
-  resources :collections, :except => :show
-
-  resources :fossils
-  
-#   resources :fossil_download, :only       => [:create],
-#                               :controller => :fossil, 
-#                               :path_names => { :create => "download" }
-#                               :path       => '/fossil/:id/:style/:name.:extension'
-
-  match 'fossils/:id/:style', :controller => 'fossils', :action => 'download', :conditions => { :method => :get }
+  resources :collections, :except => :show do 
+    resources :fossils do 
+      member do
+        get 'download' 
+      end
+    end
+  end
+#   match 'fossils/:id/:style', :controller => 'fossils', :action => 'download', :conditions => { :method => :get }
 
   
   devise_for :users

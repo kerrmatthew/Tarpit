@@ -2,6 +2,9 @@ class FossilsController < ApplicationController
   # GET /fossils
   # GET /fossils.xml
   load_and_authorize_resource
+  
+  before_filter :load_collection
+  
   def index
   
   redirect_to collections_path
@@ -17,7 +20,7 @@ class FossilsController < ApplicationController
   # GET /fossils/1.xml
   def show
     #@fossil = Fossil.find(params[:id])
-
+    redirect_to collections_path, :notice => "That Fossil is no longer here." unless @fossil 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @fossil }
@@ -47,7 +50,7 @@ class FossilsController < ApplicationController
 
     respond_to do |format|
       if @fossil.save
-        format.html { redirect_to(@fossil, :notice => 'Fossil was successfully created.') }
+        format.html { redirect_to([@collection, @fossil], :notice => 'Fossil was successfully created.') }
         format.xml  { render :xml => @fossil, :status => :created, :location => @fossil }
       else
         format.html { render :action => "new" }
@@ -63,7 +66,7 @@ class FossilsController < ApplicationController
 
     respond_to do |format|
       if @fossil.update_attributes(params[:fossil])
-        format.html { redirect_to(@fossil, :notice => 'Fossil was successfully updated.') }
+        format.html { redirect_to([@collection, @fossil], :notice => 'Fossil was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -97,7 +100,11 @@ class FossilsController < ApplicationController
     
   end
 
-
+  private 
+  
+  def load_collection
+    @collection = Collection.find(params[:collection_id]) || @fossil.collection
+  end
   
   
 end

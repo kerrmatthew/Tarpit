@@ -10,7 +10,7 @@
 
 -if can? :update, fossil
   .collection-item-edit
-    =link_to 'Edit', edit_fossil_path(fossil) 
+    =link_to 'Edit', edit_collection_fossil_path(fossil.collection, fossil) 
   
     -if can? :destroy, fossil 
-      =link_to 'Destroy', fossil, :confirm => 'Are you sure?', :method => :delete  
+      =link_to 'Destroy', [fossil.collection, fossil], :confirm => 'Are you sure?', :method => :delete  
