@@ -1,6 +1,7 @@
 class Fossil < ActiveRecord::Base
 
-  validates_presence_of :collection, :name
+  validates_presence_of :collection, :name 
+  validates_attachment_presence :attachment
   
  # validates_attachment_presence :attachment
   
