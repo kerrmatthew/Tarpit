@@ -10,7 +10,7 @@
             -collection.fossils.each do |fossil| 
               %li.collection-items= render "fossils/list_item", :fossil => fossil 
               
-            =link_to 'New Fossil', { :controller => 'fossils', :action => 'new', :collection_id => collection.id } if can? :create, Fossil
+            =link_to 'New File', { :controller => 'fossils', :action => 'new', :collection_id => collection.id } if can? :create, Fossil
               
         %td.collection-edit= link_to 'Edit', edit_collection_path(collection) if can? :edit, collection
         %td.collection-edit= link_to 'Destroy', collection, :confirm => 'Are you sure?', :method => :delete if can? :destroy, collection 

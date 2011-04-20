@@ -3,7 +3,7 @@
     #error_explanation
       %h2
         =pluralize(@fossil.errors.count, "error") 
-        prohibited this fossil from being saved:
+        prohibited this file from being saved:
         
       %ul
         -@fossil.errors.full_messages.each do |msg| 
