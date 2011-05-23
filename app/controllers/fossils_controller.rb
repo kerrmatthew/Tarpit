@@ -79,10 +79,11 @@ class FossilsController < ApplicationController
   # DELETE /fossils/1.xml
   def destroy
     # @fossil = Fossil.find(params[:id])
-    @fossil.destroy
+    notice = "File '#{@fossil.name}' has been deleted." if @fossil.destroy 
+    
 
     respond_to do |format|
-      format.html { redirect_to(fossils_url) }
+      format.html { redirect_to(collections_path, :notice => notice) }
       format.xml  { head :ok }
     end
   end
