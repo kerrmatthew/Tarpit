@@ -4,8 +4,8 @@
 %br
 =link_to "Download #{fossil.attachment_file_name}", fossil.attachment.url
 –
-=fossil.attachment_file_size 
-==Bytes (#{fossil.attachment_content_type})
+=sprintf('%.2f', (fossil.attachment_file_size / (1024.0 * 1024.0)) )
+==MB (#{fossil.attachment_content_type})
 
 -if can?(:download_counters, fossil) and ! fossil.download_counters.empty?
   .download_history
