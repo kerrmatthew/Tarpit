@@ -13,7 +13,15 @@
   %br
   = @user.role
 
-
 =link_to 'Edit', edit_admin_user_path(@user)
 |
 =link_to 'Back', admin_users_path 
+-if ! @user.download_counters.empty?
+  .container{:style => 'width: 350px;'}
+    .download_history
+      %a{:href => "javascript::;", :onclick => "$('#dl-list-#{@user.id}').toggle('blind', '', 'fast');"}= "Downloaded (#{@user.download_counters.count})"
+      .download-history-content{ :id => "dl-list-#{@user.id}" }
+        -@user.download_counters.each do |dl|
+          %span.dl-name="#{dl.fossil.name} (#{dl.fossil.collection.name})"
+          %span.dl-date=dl.created_at.strftime("%a, %d %b %Y")
+          %br

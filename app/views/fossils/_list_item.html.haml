@@ -12,7 +12,11 @@
     %a{:href => "javascript::;", :onclick => "$('#dl-list-#{fossil.id}').toggle('blind', '', 'fast');"}= "Downloaded (#{fossil.download_counters.count})"
     .download-history-content{ :id => "dl-list-#{fossil.id}" }
       -fossil.download_counters.each do |dl|
-        %span.dl-name=dl.user ? dl.user.name : "Public User"
+        %span.dl-name
+          -if dl.user
+            =link_to dl.user.name, admin_user_path(dl.user)
+          -else 
+            Public User
         %span.dl-date=dl.created_at.strftime("%a, %d %b %Y")
         %br
 
