@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessor :login
   
   has_and_belongs_to_many :collections
+  has_many :download_counters, :dependent => :destroy
   
   ROLES = %w[normal admin]
   

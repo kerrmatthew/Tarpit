@@ -8,6 +8,7 @@ class Ability
     if user.role == 'admin'
       can :manage, :all
       can :assign_roles, User
+      can :download_counters, Fossil
 
     elsif user.role == 'normal'
       can :read, Collection, :id =>  user.collection_ids
@@ -15,6 +16,7 @@ class Ability
       
       cannot :manage, Fossil
       can :manage, Fossil, :collection => { :id => user.collection_ids }
+      cannot :download_counters, Fossil
       
       cannot :manage, User
       can :manage, User, :id => user.id

@@ -6,8 +6,17 @@
 –
 =fossil.attachment_file_size 
 ==Bytes (#{fossil.attachment_content_type})
-%br
 
+-if can?(:download_counters, fossil) and ! fossil.download_counters.empty?
+  .download_history
+    %a{:href => "javascript::;", :onclick => "$('#dl-list-#{fossil.id}').toggle('blind', '', 'fast');"}= "Downloaded (#{fossil.download_counters.count})"
+    .download-history-content{ :id => "dl-list-#{fossil.id}" }
+      -fossil.download_counters.each do |dl|
+        %span.dl-name=dl.user.name
+        %span.dl-date=dl.created_at.strftime("%a, %d %b %Y")
+        %br
+
+%br
 -if can? :update, fossil
   .collection-item-edit
     =link_to 'Edit', edit_collection_fossil_path(fossil.collection, fossil) 
