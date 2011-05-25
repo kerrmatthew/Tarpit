@@ -15,7 +15,7 @@ class Ability
       can :read, Collection, :public => true
       
       cannot :manage, Fossil
-      can :manage, Fossil, :collection => { :id => user.collection_ids }
+     # can :manage, Fossil, :collection => { :id => user.collection_ids }
       cannot :download_counters, Fossil
       
       cannot :manage, User
