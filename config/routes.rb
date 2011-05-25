@@ -7,14 +7,15 @@ Tarpit::Application.routes.draw do
       end
     end
   end
+  
+  resources :files, :as => :fossils, :controller => 'fossils', :only => [:show, :index]
+  
 #   match 'fossils/:id/:style', :controller => 'fossils', :action => 'download', :conditions => { :method => :get }
 
   
   devise_for :users
   
-	namespace :admin do 
-    resources :users
-  end
+  resources :users
 
 
   # The priority is based upon order of creation:

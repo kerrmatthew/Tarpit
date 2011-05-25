@@ -1,0 +1,25 @@
+%h1 Listing users
+
+%table
+  %tr
+    %th Name
+    %th Email
+    %th Role
+    %th 
+    %th 
+    %th 
+
+  -@users.each do |user| 
+    %tr
+      %td= user.name
+      %td= user.email 
+      %td= user.role
+      %td= link_to 'Show', user_path(user)
+      %td= link_to 'Edit', edit_user_path(user) 
+      %td= link_to('Destroy', user_path(user), :confirm => 'Are you sure?', :method => :delete)
+      %td
+        -if ! user.download_counters.empty?
+          =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => user, :detail_associate => :fossil, :no_assoc_message => "No File" }
+%br 
+
+=link_to 'New User', new_user_path 

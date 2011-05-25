@@ -8,17 +8,7 @@
 ==MB (#{fossil.attachment_content_type})
 
 -if can?(:download_counters, fossil) and ! fossil.download_counters.empty?
-  .download_history
-    %a{:href => "javascript::;", :onclick => "$('#dl-list-#{fossil.id}').toggle('blind', '', 'fast');"}= "Downloaded (#{fossil.download_counters.count})"
-    .download-history-content{ :id => "dl-list-#{fossil.id}" }
-      -fossil.download_counters.each do |dl|
-        %span.dl-name
-          -if dl.user
-            =link_to dl.user.name, admin_user_path(dl.user)
-          -else 
-            Public User
-        %span.dl-date=dl.created_at.strftime("%a, %d %b %Y")
-        %br
+  =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => fossil, :detail_associate => :user, :no_assoc_message => "Public User"}
 
 %br
 -if can? :update, fossil

@@ -1,0 +1,20 @@
+%p
+  %strong Name
+  %br
+  = @user.name 
+
+%p
+  %strong E-mail
+  %br
+  = @user.email
+
+%p
+  %strong Role
+  %br
+  = @user.role
+
+=link_to 'Edit', edit_user_path(@user)
+|
+=link_to 'Back', users_path 
+-if ! @user.download_counters.empty?
+  =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => @user, :detail_associate => :fossil, :no_assoc_message => "No File" }

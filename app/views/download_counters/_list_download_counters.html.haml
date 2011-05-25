@@ -1,0 +1,11 @@
+.download_history
+  %a{:href => "javascript::;", :onclick => "$('#dl-list-#{parent_associate.id}').toggle('blind', '', 'fast');"}= "Downloaded (#{parent_associate.download_counters.count})"
+  .download-history-content{ :id => "dl-list-#{parent_associate.id}" }
+    -parent_associate.download_counters.each do |dl|
+      %span.dl-name
+        -if dl.send(detail_associate).respond_to? :name
+          =link_to dl.send(detail_associate).name, url_for(dl.send(detail_associate).class)
+        -else 
+          =no_assoc_message
+      %span.dl-date=dl.created_at.strftime("%a, %d %b %Y")
+      %br

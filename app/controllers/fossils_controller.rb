@@ -3,7 +3,7 @@ class FossilsController < ApplicationController
   # GET /fossils.xml
   load_and_authorize_resource
   
-  before_filter :load_collection
+  before_filter :load_collection, :except => :index
   
   def index
   
