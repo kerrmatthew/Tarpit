@@ -3,7 +3,7 @@ class FossilsController < ApplicationController
   # GET /fossils.xml
   load_and_authorize_resource
   
-  before_filter :load_collection, :except => :index
+  before_filter :load_collection, :except => [:show, :index]
   
   def index
   
@@ -20,11 +20,7 @@ class FossilsController < ApplicationController
   # GET /fossils/1.xml
   def show
     #@fossil = Fossil.find(params[:id])
-    redirect_to collections_path, :notice => "That Fossil is no longer here." unless @fossil 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @fossil }
-    end
+    redirect_to collections_path
   end
 
   # GET /fossils/new
