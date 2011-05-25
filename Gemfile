@@ -29,7 +29,7 @@ gem 'pg'
  group :development, :test do
 #   gem 'webrat'
   gem 'rspec-rails'
-  gem 'autotest'
+  gem 'autotest-rails'
   gem 'autotest-growl'
  end
 

@@ -10,7 +10,7 @@ module FossilSpecHelper
      :date_available_to        =>  Date.tomorrow          ,
      :created_at               =>  Date.yesterday         ,
      :updated_at               =>  Date.yesterday         ,
-     :attachment               =>  "/public/images/rails.png",
+     :attachment               =>  "#{::Rails.root}/public/images/rails.png",
      :collection               => Collection.new
     }
   end
