@@ -4,7 +4,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require "paperclip/matchers"
 
-Spec::Runner.configure do |config|
+RSpec::Runner.configure do |config|
   config.include Paperclip::Shoulda::Matchers
 end
 

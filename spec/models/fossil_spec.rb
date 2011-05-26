@@ -10,7 +10,7 @@ module FossilSpecHelper
      :date_available_to        =>  Date.tomorrow          ,
      :created_at               =>  Date.yesterday         ,
      :updated_at               =>  Date.yesterday         ,
-     :attachment               =>  "#{::Rails.root}/public/images/rails.png",
+     :attachment               =>  File.new(Rails.root + "public/images/rails.png"),
      :collection               => Collection.new
     }
   end
@@ -41,7 +41,7 @@ describe Fossil do
   
   it "should require an attachment" do 
     @fossil.attributes = valid_fossil_attributes.except(:attachment)
-    @fossil.should have(1).error_on(:attachment)
+    @fossil.should have(1).error_on(:attachment_file_name)
   end
   
   

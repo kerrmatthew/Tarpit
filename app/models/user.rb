@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   
   ROLES = %w[normal admin]
   
+  validates_presence_of :email, :name
+  validates_uniqueness_of :name, :email
+  validates_inclusion_of :role, :in => self::ROLES
+  
   scope :admin, where(:role => "admin")
   scope :normal, where(:role => "normal")
   
