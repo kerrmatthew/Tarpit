@@ -1,3 +1,4 @@
+
 %strong=fossil.name 
 –
 = fossil.description
@@ -7,10 +8,10 @@
 =sprintf('%.2f', (fossil.attachment_file_size / (1024.0 * 1024.0)) )
 ==MB (#{fossil.attachment_content_type})
 
+%br
 -if can?(:download_counters, fossil) and ! fossil.download_counters.empty?
   =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => fossil, :detail_associate => :user, :no_assoc_message => "Public User"}
 
-%br
 -if can? :update, fossil
   .collection-item-edit
     =link_to 'Edit', edit_collection_fossil_path(fossil.collection, fossil) 
