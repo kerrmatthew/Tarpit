@@ -38,7 +38,7 @@ task :set_config_for_pg_gem, :roles => [:app, :db] do
 
 end
 
-before "bundle:install", :set_config_for_pg_gem
+#before "bundle:install", :set_config_for_pg_gem
 
 
 namespace :paperclip do
