@@ -1,12 +1,12 @@
 
 %strong=fossil.name 
 –
-= fossil.description
+=fossil.description
 %br
 =link_to "Download #{fossil.attachment_file_name}", fossil.attachment.url
 –
 =sprintf('%.2f', (fossil.attachment_file_size / (1024.0 * 1024.0)) )
-==MB (#{fossil.attachment_content_type})
+==MB (#{/.+\/(.+)$/.match(fossil.attachment_content_type)[1]})
 
 %br
 -if can?(:download_counters, fossil) and ! fossil.download_counters.empty?
