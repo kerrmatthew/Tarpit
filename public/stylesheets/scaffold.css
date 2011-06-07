@@ -1,3 +1,5 @@
+/* @override http://local.tarpit/stylesheets/scaffold.css?1307453906 */
+
 /* @override 
 	http://local.tarpit/stylesheets/scaffold.css?1306244335
 	http://local.tarpit/stylesheets/scaffold.css?1302510467
@@ -54,6 +56,7 @@ ul ul#meta {
 	margin: 0;
 	width: 100%;
 	height: 34px;
+	font-size: 11pt;
 }
 
 #indexes li.alert, #indexes li.notice {
@@ -106,7 +109,6 @@ body { background-color: #fff;
 }
 
 body, p, ol, ul, td {
-	font: 13px/1.5em;
 }
 
 pre {
@@ -115,7 +117,8 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
+a { color: #666;
+font-size: 10pt; }
 a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
@@ -138,26 +141,39 @@ div.field, div.actions {
   padding: 3px 10px ;
   text-transform: capitalize;
   font-weight: bold;
-	width: 860px;
+  width: 860px;
+  font-weight: lighter;
+
 	
 }
 
 
 .collection-items {
-  margin-bottom: 2em;
   list-style: none;
   list-style-position: outside;
+  font-weight: lighter;
+	font-size: 10pt;
+	padding-left: 24px;
+	margin-bottom: 1.5em;
 }
 
 .collection-items, .collection-items a {
   color: #666666;
 }
+
+.collection-items a {
+  font-weight: normal;
+  color: #444;
+}
 .collection-items strong {
   color: #000000;
+  font-weight: bold;
+	font-size: 12pt;
 }
 
 .collection-item-edit {
 	display: inline-block;
+	padding-top: 7px;
 }
 
 .collection-item-edit, .collection-item-edit a {
@@ -210,12 +226,26 @@ div.field, div.actions {
 
 .download-history-content {
 	display: none;
-	font-size: 11px;
+	font-size: 9pt;
+	margin: 0.5em;
+}
+
+div.download_history a, div.download_history a:hover {
+	font-size: 10pt;
+	color: #757575;
+	text-decoration: none;
+	text-shadow: #fff 0 1px 0;
+	background: none;
+}
+
+div.download_history a:hover {
+	color: #000;
+	text-shadow: #fff 0 2px 0;
 }
 
 div.download_history {
 	text-align: left;
-	background-color: #e7e8e8;
+	background-color: rgba(231,232,232,0.93);
 	-moz-box-shadow: 0px 2px 2px #000000;
 	box-shadow: 0px 2px 2px #000000;
 	-moz-border-radius: 2px;
@@ -225,16 +255,15 @@ div.download_history {
 	margin-right: 10px;
 	position: absolute;
 	float: left;
-	padding-left: 3px;
-	padding-right: 3px;
-	padding-bottom: 2px;
+	padding: 2px 3px;
+	margin-top: 4px;
 }
 
 div.download_history_spacer {
 	float: left;
 	display: block;
 	position: relative;
-	width: 108px;
+	width: 103px;
 	clear: left;
 	height: 1px;
 }
@@ -278,4 +307,14 @@ span.dl-date {
 
 #trouble {
 	float: left;
+}
+
+#main-container h1, #main-container h2 {
+	font-weight: 100;
+	font-size: 28pt;
+}
+
+label {
+	font-size: 14pt;
+	font-weight: lighter;
 }
