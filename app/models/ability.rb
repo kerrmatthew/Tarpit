@@ -14,9 +14,13 @@ class Ability
       can :read, Collection, :id =>  user.collection_ids
       can :read, Collection, :public => true
       
+      
       cannot :manage, Fossil
+      can :download, Fossil, :collection => {:id => user.collection_ids  }
+      can :download, Fossil, :collection => {:public => true }
      # can :manage, Fossil, :collection => { :id => user.collection_ids }
       cannot :download_counters, Fossil
+
       
       cannot :manage, User
       can :manage, User, :id => user.id
