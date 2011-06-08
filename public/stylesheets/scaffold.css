@@ -1,3 +1,5 @@
+/* @override http://local.tarpit/stylesheets/scaffold.css?1307457015 */
+
 /* @override http://local.tarpit/stylesheets/scaffold.css?1307453906 */
 
 /* @override 
@@ -32,6 +34,11 @@ ul {
 	color: #fffeff;
 	text-decoration: none;
 	background-color: #525252;
+	height: 19px;
+}
+
+#main-container table tbody tr td {
+	
 }
 
 ul ul#meta {
@@ -251,7 +258,7 @@ div.download_history {
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 	display: inline;
-	z-index: 0;
+	z-index: 1;
 	margin-right: 10px;
 	position: absolute;
 	float: left;
@@ -275,6 +282,8 @@ span.dl-date {
 #footer {
 	padding-bottom: 2em;
 	margin-top: 2em;
+	padding-top: 2em;
+	margin-bottom: 1em;
 }
 
 #footer, #footer a, #footer h3 {
