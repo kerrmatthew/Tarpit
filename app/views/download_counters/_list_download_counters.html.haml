@@ -1,5 +1,5 @@
 .download_history
-  %a{:href => "javascript::;", :onclick => "$('#dl-list-#{parent_associate.id}').toggle('blind', '', 'fast');"}= "Downloaded (#{parent_associate.download_counters.count})"
+  %a{:href => "javascript::;", :onclick => "dl_list.toggle_and_bring_to_front(#{parent_associate.id});"}= "Downloaded (#{parent_associate.download_counters.count})"
   .download-history-content{ :id => "dl-list-#{parent_associate.id}" }
     -parent_associate.download_counters.each do |dl|
       %span.dl-name

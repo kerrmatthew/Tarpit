@@ -1,7 +1,7 @@
 %h1 Listing users
 
 -@users.each do |user| 
-  %li.collection-items
+  %li{:class => "collection-items #{ "highlight" if user.id == params[:user].to_i }"}
     =user.name + " " 
     =mail_to(user.email, user.email)
     =" – " 
@@ -11,9 +11,7 @@
       =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => user, :detail_associate => :fossil, :no_assoc_message => "No File" }
   
     .collection-item-edit
-      =link_to 'Show', user_path(user)
       =link_to 'Edit', edit_user_path(user) 
       =link_to('Destroy', user_path(user), :confirm => 'Are you sure?', :method => :delete)
-  %br 
 
 =link_to 'New User', new_user_path 

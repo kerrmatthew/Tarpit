@@ -15,7 +15,7 @@ Tarpit::Application.routes.draw do
   
   devise_for :users
   
-  resources :people, :as => :users, :controller => 'users' 
+  resources :people, :as => :users, :controller => 'users'
 
 
   # The priority is based upon order of creation:
