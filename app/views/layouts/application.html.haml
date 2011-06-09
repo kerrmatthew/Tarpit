@@ -14,7 +14,7 @@
           %span.current
             Collections
       
-      -if can? :manage, User
+      -if can? :manage, User.all
         %li
           =link_to_unless_current 'Users', users_path do
             %span.current
