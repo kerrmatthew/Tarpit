@@ -22,6 +22,11 @@
         =check_box_tag "collection[user_ids][]", user.id, @collection.users.include?(user) 
         %strong=user.name 
         ==(#{mail_to user.email})
-        =check_box_tag "collection[set_upload_permissions][]", user.id, user.can_upload_to(@collection) 
+        %br
+        &nbsp;&nbsp;&nbsp;
+        =check_box_tag "collection[set_upload_permissions][]", user.id, user.can_upload_to(@collection)
+        can upload 
+        %br
+        %br
 
   .actions= f.submit 
