@@ -8,7 +8,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :login, :name, :role
   attr_accessor :login
   
-  has_and_belongs_to_many :collections
+  #has_and_belongs_to_many :collections
+  
+  has_many :collection_user_joins
+  has_many :collections, :through => :collection_user_joins
+  
   has_many :download_counters, :dependent => :destroy
   
   ROLES = %w[normal admin]
