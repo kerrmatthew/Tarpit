@@ -18,7 +18,12 @@ class Ability
       cannot :manage, Fossil
       can :download, Fossil, :collection => {:id => user.collection_ids  }
       can :download, Fossil, :collection => {:public => true }
-     # can :manage, Fossil, :collection => { :id => user.collection_ids }
+      can :new, Fossil do |fossil|
+        !user.collection_user_joins.can_upload.empty? 
+      end
+      can [:create, :show], Fossil do |fossil|
+        user.can_upload_collections.include?(fossil.collection)
+      end
       cannot :download_counters, Fossil
 
       

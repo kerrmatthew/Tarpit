@@ -24,6 +24,17 @@ class User < ActiveRecord::Base
   scope :admin, where(:role => "admin")
   scope :normal, where(:role => "normal")
   
+  
+  def can_upload_collections
+    return Collection.all if role == "admin"
+    
+    collection_user_joins.can_upload.map{|cuj| cuj.collection if cuj.user_id == self.id }
+  end
+  
+  def can_upload_to(collection)
+    can_upload_collections.include? collection 
+  end
+  
    protected
 
  def self.find_for_database_authentication(conditions)
@@ -72,6 +83,7 @@ class User < ActiveRecord::Base
    #where(attributes).where(["username = :value OR email = :value", { :value => login }]).first if attributes
    where(["name = :value OR email = :value", { :value => login }]).first 
  end
+
 
 
 end

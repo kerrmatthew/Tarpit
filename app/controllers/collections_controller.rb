@@ -59,9 +59,11 @@ class CollectionsController < ApplicationController
   # PUT /collections/1.xml
   def update
     params[:collection][:user_ids] ||= []
-
-  #  @collection = Collection.find(params[:id])
+    params[:collection][:set_upload_permissions] ||= []
     
+    @collection.set_upload_permissions params[:collection][:set_upload_permissions]
+    
+    params[:collection].delete :set_upload_permissions
 
     respond_to do |format|
       if @collection.update_attributes(params[:collection])
