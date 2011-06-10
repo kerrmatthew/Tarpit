@@ -28,15 +28,18 @@
     =f.label :attachment
     %br 
     =f.file_field :attachment
-    
-  .field
-    =f.label :date_available_from 
-    %br 
-    =f.date_select :date_available_from
-    
-  .field
-    =f.label :date_available_to 
-    %br 
-    =f.date_select :date_available_to
+
+  =hidden_field_tag 'fossil[upload_user_id][]', current_user.id
     
   .actions=f.submit 
+    
+-#  .field
+-#    =f.label :date_available_from 
+-#    %br 
+-#    =f.date_select :date_available_from
+-#    
+-#  .field
+-#    =f.label :date_available_to 
+-#    %br 
+-#    =f.date_select :date_available_to
+    

@@ -1,5 +1,5 @@
-
-%strong=fossil.name 
+%strong
+  =fossil.name 
 –
 =fossil.description
 %br
@@ -9,7 +9,8 @@
 ==MB (#{/.+\/(.+)$/.match(fossil.attachment_content_type)[1]})
 
 %br
--if can?(:download_counters, fossil) and ! fossil.download_counters.empty?
+
+-if can?(:download_counters, fossil) and fossil.download_counters.empty?
   =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => fossil, :detail_associate => :user, :no_assoc_message => "Public User"}
 
 -if can? :update, fossil
@@ -18,3 +19,7 @@
   
     -if can? :destroy, fossil 
       =link_to 'Destroy', [fossil.collection, fossil], :confirm => 'Are you sure?', :method => :delete  
+
+-if fossil.upload_user_id and can?(:download_counters, fossil)
+  uploaded by:
+  =User.find(fossil.upload_user_id).name

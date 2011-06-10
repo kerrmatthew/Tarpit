@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110609105307) do
+ActiveRecord::Schema.define(:version => 20110610023018) do
 
   create_table "collection_user_joins", :force => true do |t|
     t.integer  "collection_id"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20110609105307) do
     t.integer  "attachment_file_size"
     t.datetime "attachment_uploaded_at"
     t.integer  "collection_id"
+    t.integer  "upload_user_id"
   end
 
   create_table "users", :force => true do |t|
