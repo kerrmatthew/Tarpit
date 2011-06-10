@@ -1,5 +1,5 @@
-%strong
-  =fossil.name 
+
+%strong=fossil.name 
 –
 =fossil.description
 %br
@@ -9,8 +9,7 @@
 ==MB (#{/.+\/(.+)$/.match(fossil.attachment_content_type)[1]})
 
 %br
-
--if can?(:download_counters, fossil) and fossil.download_counters.empty?
+-if can?(:download_counters, fossil) and ! fossil.download_counters.empty?
   =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => fossil, :detail_associate => :user, :no_assoc_message => "Public User"}
 
 -if can? :update, fossil
