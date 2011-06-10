@@ -44,6 +44,9 @@ class FossilsController < ApplicationController
    # @fossil = Fossil.new(params[:fossil])
 
     respond_to do |format|
+    
+      @fossil.upload_user = current_user
+    
       if @fossil.save
         format.html { redirect_to([@collection, @fossil], :notice => 'Fossil was successfully created.') }
         format.xml  { render :xml => @fossil, :status => :created, :location => @fossil }

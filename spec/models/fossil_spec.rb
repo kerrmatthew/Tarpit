@@ -6,6 +6,7 @@ module FossilSpecHelper
     
     :name                      => "Test Fossil"           ,
      :description              =>  "This is a test fossil",
+     :upload_user_id           =>  1                      ,
      :date_available_from      =>  Date.today             ,
      :date_available_to        =>  Date.tomorrow          ,
      :created_at               =>  Date.yesterday         ,
