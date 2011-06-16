@@ -1,5 +1,6 @@
-
-%strong=fossil.name 
+%strong=fossil.name
+-if fossil.attachment_is_image?
+  %img{ :src => fossil.attachment.url(:thumb), :class => "thumbnail"} 
 –
 =fossil.description
 %br
@@ -22,3 +23,7 @@
 -if fossil.upload_user_id and can?(:download_counters, fossil)
   uploaded by:
   =User.find(fossil.upload_user_id).name
+
+#clear
+
+= `which convert`

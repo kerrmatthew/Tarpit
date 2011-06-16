@@ -1,12 +1,9 @@
 Tarpit::Application.routes.draw do
   
   resources :collections, :except => :show do 
-    resources :files, :as => :fossils, :controller => 'fossils' do 
-      member do
-        get 'download'
-      end
-    end
+    resources :files, :as => :fossils, :controller => 'fossils'
   end
+  match 'files/:id/download/(:style)' => 'fossils#download', :as => :download, :via => :get
   
   resources :files, :as => :fossils, :controller => 'fossils', :only => [:show, :index]
   

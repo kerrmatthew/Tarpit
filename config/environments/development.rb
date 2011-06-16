@@ -23,5 +23,9 @@ Tarpit::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }  
+  
+  
+  Paperclip.options[:command_path] = "DYLD_LIBRARY_PATH='/usr/local/Cellar/imagemagick/6.6.9-4/lib' /usr/local/Cellar/imagemagick/6.6.9-4/bin"
+  
 end
 

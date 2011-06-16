@@ -12,16 +12,6 @@ class CollectionsController < ApplicationController
     end
   end
 
-  # GET /collections/1
-  # GET /collections/1.xml
-  def show
-    #@collection = Collection.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @collection }
-    end
-  end
 
   # GET /collections/new
   # GET /collections/new.xml

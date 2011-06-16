@@ -1,6 +1,4 @@
-
-
-=form_for [@collection, @fossil], :html => {:class => "upload", :multipart => true} do |f| 
+=form_for [@collection, @fossil], :format => :json, :html => {:class => "upload", :multipart => true} do |f| 
   -if @fossil.errors.any? 
     #error_explanation
       %h2

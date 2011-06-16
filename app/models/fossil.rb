@@ -15,8 +15,13 @@ class Fossil < ActiveRecord::Base
   has_many :download_counters
   
   has_attached_file :attachment,
-                    :url => "/collections/:collection_id/files/:id/download",
-                    :path => ':rails_root/assets/:class/:id/:style/:filename'
+                    :url => "/files/:id/download/:style",
+                    :path => ':rails_root/assets/:class/:id/:style/:filename',
+                    :styles => {:thumb => "55x69#" }
 
+  def attachment_is_image? 
+    return true if attachment_content_type =~ /.*image.*/
+    false
+  end
   
 end

@@ -3,7 +3,7 @@ class FossilsController < ApplicationController
   # GET /fossils.xml
   #load_and_authorize_resource
   
-  before_filter :load_collection, :except => [:show, :index]
+  before_filter :load_collection, :except => [:show, :index, :download]
   
   def index
   
@@ -48,11 +48,18 @@ class FossilsController < ApplicationController
       @fossil.upload_user = current_user
     
       if @fossil.save
-          format.json {  render :json => { :attachment_path => @fossil.attachment.url, :name => @fossil.attachment_file_name }, :content_type => 'text/html' }
+        
+     format.json { render :json => [{ :name           => @fossil.attachment_file_name         ,
+                                      :size           => @fossil.attachment_file_size         , 
+                                      :url            => @fossil.attachment.url               , 
+                                      :thumbnail_url  => @fossil.attachment.url(:thumb)       ,
+                                      :delete_url     => collection_fossil_path(@fossil.collection, @fossil),
+                                      :delete_type    => 'delete' }]  }
 #         format.html { redirect_to([@collection, @fossil], :notice => 'Fossil was successfully created.') }
 #         format.xml  { render :xml => @fossil, :status => :created, :location => @fossil }
 #         format.js
       else
+        format.json { render :json => @fossil.errors }
         format.html { render :action => "new" }
         format.xml  { render :xml => @fossil.errors, :status => :unprocessable_entity }
       end
@@ -85,6 +92,7 @@ class FossilsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(collections_path, :notice => notice) }
       format.xml  { head :ok }
+      format.json { render :json => {:notice => "success"} }
     end
   end
   
@@ -95,7 +103,7 @@ class FossilsController < ApplicationController
     path = fossil.attachment.path(params[:style])
     head(:bad_request) and return unless File.exist?(path) 
     
-    fossil.download_counters.build({:user => current_user, :fossil => @fossil }).save
+    fossil.download_counters.build({:user => current_user, :fossil => @fossil }).save unless params[:style] == 'thumb'
 
     send_file_options = { :type => fossil.attachment_content_type, :x_sendfile => true }
     

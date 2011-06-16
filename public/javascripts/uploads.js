@@ -4,7 +4,8 @@ $(function () {
         maxNumberOfFiles: 1,
         maxChunkSize: 1000000, // 10 MB
         multipart: true,
-        autoUpload: true
+        autoUpload: true,
+        maxFileSize: 300000000 //300 MB
         
 /*
         uploadTemplate: function () {
