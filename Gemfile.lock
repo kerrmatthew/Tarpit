@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/JangoSteve/remotipart.git
+  revision: 8c11dd4c7ed66629699687a0a55a22c5b7c3b817
+  branch: latest-and-greatest
+  specs:
+    remotipart (0.2.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -131,5 +138,6 @@ DEPENDENCIES
   paperclip
   pg (= 0.10.1)
   rails (= 3.0.5)
+  remotipart!
   rspec-rails
   thor (>= 0.14.4)

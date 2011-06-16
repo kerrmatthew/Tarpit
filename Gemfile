@@ -42,3 +42,4 @@ gem 'paperclip'
 gem "cancan"
 
 gem 'haml'
+gem 'remotipart', :git => 'git://github.com/JangoSteve/remotipart.git', :branch => 'latest-and-greatest'

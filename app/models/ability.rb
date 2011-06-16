@@ -35,6 +35,7 @@ class Ability
       can :read, Collection, :public => true
       can :download, Fossil, :collection => { :public => true }
       cannot :manage, User
+      
     end
     
     # Define abilities for the passed in user here. For example:

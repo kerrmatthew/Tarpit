@@ -1,4 +1,6 @@
-=form_for [@collection, @fossil], :html => { :multipart => true } do |f| 
+
+
+=form_for [@collection, @fossil], :html => {:class => "upload", :multipart => true} do |f| 
   -if @fossil.errors.any? 
     #error_explanation
       %h2
@@ -27,10 +29,12 @@
   .field
     =f.label :attachment
     %br 
-    =f.file_field :attachment
-    
+    -#=f.file_field 'attachment'
+
+    =render :partial => "upload_table"
+
   .actions=f.submit 
-    
+
 -#  .field
 -#    =f.label :date_available_from 
 -#    %br 
@@ -41,3 +45,4 @@
 -#    %br 
 -#    =f.date_select :date_available_to
     
+= javascript_include_tag "uploads"
