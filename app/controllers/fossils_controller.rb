@@ -1,14 +1,14 @@
 class FossilsController < ApplicationController
   # GET /fossils
   # GET /fossils.xml
-  #load_and_authorize_resource
+  load_and_authorize_resource
   
   before_filter :load_collection, :except => [:show, :index, :download]
   
   def index
   
   redirect_to collections_path
-     @fossils = Fossil.all
+#     @fossils = Fossil.all
 # 
 #     respond_to do |format|
 #       format.html # index.html.erb
@@ -19,14 +19,13 @@ class FossilsController < ApplicationController
   # GET /fossils/1
   # GET /fossils/1.xml
   def show
-    @fossil = Fossil.find(params[:id])
-    redirect_to collections_path
+    redirect_to collections_path(:fossil_id => params[:id])
   end
 
   # GET /fossils/new
   # GET /fossils/new.xml
   def new
-    @fossil = Fossil.new
+#    @fossil = Fossil.new
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @fossil }
@@ -35,29 +34,32 @@ class FossilsController < ApplicationController
 
   # GET /fossils/1/edit
   def edit
-   @fossil = Fossil.find(params[:id])
+#   @fossil = Fossil.find(params[:id])
   end
 
   # POST /fossils
   # POST /fossils.xml
   def create
-    @fossil = Fossil.new(params[:fossil])
+#    @fossil = Fossil.new(params[:fossil])
 
     respond_to do |format|
     
       @fossil.upload_user = current_user
     
       if @fossil.save
-        
-     format.json { render :json => [{ :name           => @fossil.attachment_file_name         ,
+      session[:last_saved_fossil_id] = @fossil.id
+
+     format.json { 
+                  
+                  render :json => [{ :name           => @fossil.attachment_file_name         ,
+                                      :fossil_id      => @fossil.id                           ,
                                       :size           => @fossil.attachment_file_size         , 
                                       :url            => @fossil.attachment.url               , 
                                       :thumbnail_url  => @fossil.attachment.url(:thumb)       ,
-                                      :delete_url     => collection_fossil_path(@fossil.collection, @fossil),
+                                      :delete_url     => collection_fossil_path(@collection, @fossil),
                                       :delete_type    => 'delete' }]  }
-#         format.html { redirect_to([@collection, @fossil], :notice => 'Fossil was successfully created.') }
-#         format.xml  { render :xml => @fossil, :status => :created, :location => @fossil }
-#         format.js
+        format.html { redirect_to([@collection, @fossil], :notice => 'File was successfully created.') }
+        format.xml  { render :xml => @fossil, :status => :created, :location => @fossil }
       else
         format.json { render :json => @fossil.errors }
         format.html { render :action => "new" }
@@ -69,11 +71,11 @@ class FossilsController < ApplicationController
   # PUT /fossils/1
   # PUT /fossils/1.xml
   def update
-    @fossil = Fossil.find(params[:id])
+#    @fossil = Fossil.find(params[:id])
 
     respond_to do |format|
       if @fossil.update_attributes(params[:fossil])
-        format.html { redirect_to([@collection, @fossil], :notice => 'Fossil was successfully updated.') }
+        format.html { redirect_to([@collection, @fossil], :notice => 'File was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -85,7 +87,7 @@ class FossilsController < ApplicationController
   # DELETE /fossils/1
   # DELETE /fossils/1.xml
   def destroy
-    @fossil = Fossil.find(params[:id])
+#    @fossil = Fossil.find(params[:id])
     notice = "File '#{@fossil.name}' has been deleted." if @fossil.destroy
     
 

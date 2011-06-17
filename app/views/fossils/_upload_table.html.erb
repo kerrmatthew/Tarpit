@@ -1,13 +1,17 @@
 <div id="fileupload">
   <div class="fileupload-buttonbar">
+<!--
       <label class="fileinput-button">
-          <span>Upload and add file</span>
+          <div class="button upload-button">Upload and add file</div>
+                <div id="clear"></div>
+-->
           <input type="file" name="fossil[attachment]" >
-      </label>
+<!--       </label> -->
+  <div class="instructions">fossil will submit as soon as you select a file.</div>
   </div>
-    <div class="fileupload-content">
+    <div class="fileupload-content fileupload-progressbar">
         <table class="files"></table>
-        <div class="fileupload-progressbar"></div>
+<!--         <div class="fileupload-progressbar"></div> -->
     </div>
 </div>
 <script id="template-upload" type="text/x-jquery-tmpl">

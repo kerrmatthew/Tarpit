@@ -1,6 +1,6 @@
 $(function () {
   $('#fileupload').fileupload({
-        dropZone: $(),
+        dropZone: $('#fileupload'),
         maxNumberOfFiles: 1,
         maxChunkSize: 1000000, // 10 MB
         multipart: true,
@@ -27,5 +27,11 @@ $(function () {
         
         */
   });
-/*   $('.upload').bind('fileuploaddone', function (e, data) {} )  */
+  $('.upload').bind('fileuploaddone', function (e, data) { 
+    $.each(data.files, function (index, file) {
+      //re = RegExp(/collections\/(\d)/);
+      //fossil_id = e.currentTarget.action.match(re);
+      window.location = "/collections?ref=fossil_create"/* &fossil_id="  + fossil_id[1] */ ; 
+    });  
+  }); 
 });

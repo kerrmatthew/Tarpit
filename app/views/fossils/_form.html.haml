@@ -22,16 +22,13 @@
   .field
     =f.label :collection 
     %br
-    =f.select :collection_id, options_for_select(current_user.can_upload_collections.collect{|n| [n.name, n.id] }, ( @fossil.id ? @fossil.collection.id : params[:collection_id] ))
+    =f.select :collection_id,
+              options_for_select(current_user.can_upload_collections.collect{|n| [n.name, n.id] }, ( @fossil.id ? @fossil.collection.id : params[:collection_id] ))
 
-  .field
-    =f.label :attachment
-    %br 
-    -#=f.file_field 'attachment'
 
     =render :partial => "upload_table"
 
-  .actions=f.submit 
+-#  .actions=f.submit 
 
 -#  .field
 -#    =f.label :date_available_from 

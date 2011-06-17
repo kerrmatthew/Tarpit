@@ -5,6 +5,10 @@ class CollectionsController < ApplicationController
   #skip_authorize_resource :only => :index
   def index
   #  @collections = Collection.all Superceded by load_and_authorize_resorce
+    if session[:last_saved_fossil_id]
+      @last_fossil = Fossil.find(session[:last_saved_fossil_id])
+      session[:last_saved_fossil_id] = nil
+    end
 
     respond_to do |format|
       format.html # index.html.erb

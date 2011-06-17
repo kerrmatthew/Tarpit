@@ -127,7 +127,7 @@ div.field, div.actions {
   display: table;
 }
 
-.collection-name, #footer {
+.collection-name, #footer, .fileupload-content {
   background-color: #EEEEEE ;
   padding: 3px 10px ;
   text-transform: capitalize;
@@ -239,7 +239,7 @@ div.field, div.actions {
 	line-height: 1.5em;
 }
 
-div.download_history a, div.download_history a:hover {
+.button a, .button a:hover {
 	font-size: 10pt;
 	color: #757575;
 	text-decoration: none;
@@ -247,12 +247,12 @@ div.download_history a, div.download_history a:hover {
 	background: none;
 }
 
-div.download_history a:hover {
+.button a:hover {
 	color: #000;
 	text-shadow: #fff 0 1px 0;
 }
 
-div.download_history:hover {
+.button:hover {
 	background: #eeeeee; /* Old browsers */
 background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
@@ -264,7 +264,14 @@ background: linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* W3C */
 	
 }
 
-div.download_history {
+div.button.upload-button {
+	display: block;
+	position: relative;
+	margin-top: 20px;
+	margin-bottom: 8px;
+}
+
+.button {
 	
 	background: #f7f7f7; /* Old browsers */
 background: -moz-linear-gradient(top, #f7f7f7 0%, #e5e5e5 100%); /* FF3.6+ */
@@ -276,12 +283,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', end
 background: linear-gradient(top, #f7f7f7 0%,#e5e5e5 100%); /* W3C */
 
 	text-align: left;
+	
+	cursor: pointer;
 
 	-moz-box-shadow: 0px 2px 4px #aaa;
 	box-shadow: 0px 2px 4px #aaa;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
-	display: inline;
+	display: block;
 	z-index: 1;
 	margin-right: 10px;
 	position: absolute;
@@ -290,8 +299,12 @@ background: linear-gradient(top, #f7f7f7 0%,#e5e5e5 100%); /* W3C */
 	margin-top: 4px;
 }
 
+.fileupload-buttonbar {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 
-div.download_history a {
+.button a {
 	color: #151515;
 	
 	
@@ -312,6 +325,11 @@ span.dl-date {
 	text-shadow: #fefffe 0 1px 0;
 	float: right;
 	padding-left: 20px;
+}
+
+.instructions {
+  font-size: 8pt;
+  color: #999;
 }
 
 #footer {

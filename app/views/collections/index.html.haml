@@ -8,7 +8,7 @@
           .collection-name=collection.name
           %ul
             -collection.fossils.each do |fossil| 
-              %li.collection-items= render "fossils/list_item", :fossil => fossil 
+              %li{:class => "collection-items #{ "highlight" if @last_fossil == fossil }"}= render "fossils/list_item", :fossil => fossil 
               
             =link_to 'New File', { :controller => 'fossils', :action => 'new', :collection_id => collection.id } if can?(:create, Fossil) && current_user.can_upload_collections.include?(collection)
               

@@ -50,4 +50,7 @@ Tarpit::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {:address => "tarpit.flyingnun.co.nz", :enable_starttls_auto => false}
   config.action_mailer.default_url_options = { :host => 'tarpit.flyingnun.co.nz' }
+  
+  Paperclip.options[:command_path] = "/opt/local/bin"
+  
 end

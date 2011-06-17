@@ -69,8 +69,9 @@
 }
 
 .files {
-  margin: 10px 0;
+  margin: 10px auto;
   border-collapse: collapse;
+  font-size: 10pt;
 }
 
 .files td {
@@ -84,6 +85,10 @@
 
 .files .name {
   padding: 0 10px;
+  	font-size: 10pt;
+	color: #000000;
+	font-weight: bold;
+
 }
 
 .files .size {
