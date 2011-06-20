@@ -3,34 +3,39 @@
     #error_explanation
       %h2== #{ pluralize(@user.errors.count, "error") } prohibited this user from being saved:
 
-      %ul
-        -@user.errors.full_messages.each do |msg| 
-          %li= msg
-
   %p
     = f.label :name 
     %br
-    = f.text_field :name 
+    =f.text_field :name 
+    -unless @user.errors[:name].empty?
+      .errors= @user.errors[:name] 
   
   %p
     = f.label :email 
     %br 
     =f.text_field :email
+    -unless @user.errors[:email].empty?
+      .errors= @user.errors[:email].first
   
   -if can? :assign_roles, @user 
     %p
       = f.label :role 
       = f.collection_select :role, User::ROLES, :to_s, :humanize 
+      - unless @user.errors[:role].empty?
+        .errors= @user.errors[:role]
   
   = f.label :password 
-  %br 
   = f.password_field :password 
-  %br
+  -unless @user.errors[:password].empty?
+    .errors= @user.errors[:password]
+
 
   = f.label :password_confirmation 
   %br
   = f.password_field :password_confirmation 
+  - unless @user.errors[:password_confirmation].empty?
+    .errors= @user.errors[:password_confirmation] 
 
 
 
-  %p= f.submit "Update"
+  .actions= f.submit 

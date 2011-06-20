@@ -1,5 +1,8 @@
 %h1 Collections
 
+-if can? :create, Collection
+  #create-new=link_to 'New Collection', new_collection_path 
+
 -if @collections.count > 0 
   -@collections.each do |collection| 
     .collection-name
@@ -31,7 +34,3 @@
         =f.password_field :password 
     
       %p= f.submit "Sign in"
-
-%br
--if can? :create, Collection
-  =link_to 'New Collection', new_collection_path 

@@ -5,25 +5,28 @@
         =pluralize(@fossil.errors.count, "error") 
         prohibited this file from being saved:
         
-      %ul
-        -@fossil.errors.full_messages.each do |msg| 
-          %li=msg
-
   .field
     =f.label :name 
     %br 
     =f.text_field :name
+    -unless @collection.errors[:name].empty?
+      .errors= @collection.errors[:name]
     
   .field
     =f.label :description
     %br 
     =f.text_area :description, :size => "22x4"
+    -unless @collection.errors[:description].empty?
+      .errors= @collection.errors[:description]
+
     
   .field
     =f.label :collection 
     %br
     =f.select :collection_id,
               options_for_select(current_user.can_upload_collections.collect{|n| [n.name, n.id] }, ( @fossil.id ? @fossil.collection.id : params[:collection_id] ))
+    -unless @collection.errors[:collection].empty?
+      .errors= @collection.errors[:collection]
 
   #clear
     =render :partial => "upload_table"

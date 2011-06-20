@@ -3,29 +3,31 @@
     #error_explanation
       %h2== #{pluralize(@collection.errors.count, "error")} prohibited this collection from being saved:
 
-      %ul
-        -@collection.errors.full_messages.each do |msg| 
-          %li= msg 
 
   .field
     =f.label :name
     %br
     =f.text_field :name
+    -unless @collection.errors[:name].empty?
+      .errors= @collection.errors[:name]
 
   .field
     =f.check_box :public
     =f.label :public
+    -unless @collection.errors[:public].empty?
+      .errors= @collection.errors[:public]
     
   .field
     -User.normal.all.each do |user| 
-      %div
-        =check_box_tag "collection[user_ids][]", user.id, @collection.users.include?(user) 
-        %strong=user.name 
-        ==(#{mail_to user.email})
-        %br
-        &nbsp;&nbsp;&nbsp;
-        =check_box_tag "collection[set_upload_permissions][]", user.id, user.can_upload_to(@collection)
-        can upload 
+      .collection-user
+        %label
+          =check_box_tag "collection[user_ids][]", user.id, @collection.users.include?(user) 
+          %strong=user.name 
+          ==(#{mail_to user.email})
+        %label
+          &nbsp;&nbsp;&nbsp;
+          =check_box_tag "collection[set_upload_permissions][]", user.id, user.can_upload_to(@collection)
+          can upload 
         %br
         %br
 
