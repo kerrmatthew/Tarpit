@@ -7,6 +7,7 @@
 	http://local.tarpit/stylesheets/scaffold.css?1308545831
 	http://tarpit.flyingnun.co.nz/stylesheets/scaffold.css?1308551991
 	http://local.tarpit/stylesheets/scaffold.css?1308553165
+	http://local.tarpit/stylesheets/scaffold.css?1308564841
 */
 
 html {
@@ -370,6 +371,14 @@ background: linear-gradient(top, #ffffff 0%,#f4f4f4 100%);
 
 
 	cursor: pointer;
+	font-size: 9pt;
+}
+
+div.file-size {
+	font-size: 7.5pt;
+	text-align: left;
+	color: #909090;
+	float: left;
 }
 
 div.main.hover {
@@ -385,8 +394,8 @@ background: linear-gradient(top, #ffffff 0%,#949494 100%); /* W3C */
 	box-shadow: 0 2px 4px #ccc;
 	-webkit-box-shadow: 0 2px 4px #ccc;
 	-moz-box-shadow: 0 2px 4px #ccc;
-	border-top: 1px solid #fff;
-	border-bottom: 1px solid #aaa;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 
 
 }
@@ -425,11 +434,14 @@ div.collection-name a {
 	margin-left: 4px;
 }
 #uled-by {
-	float: left;
+	float: right;
+	font-size: 7.5pt;
+	padding-top: 14px;
 }
 
 div.desc {
 	font-size: 9pt;
+	float: left;
 }
 
 div.collection-name {

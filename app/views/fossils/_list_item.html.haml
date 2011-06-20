@@ -12,20 +12,21 @@
 
   &#x2193;
   %strong=link_to " #{fossil.name}", fossil.attachment.url
-  =sprintf('%.2f', (fossil.attachment_file_size / (1024.0 * 1024.0)) )
-  ==MB (#{/.+\/(.+)$/.match(fossil.attachment_content_type)[1]})
+  
   =fossil.attachment_file_name
   .desc
     =fossil.description
-    
+  -if fossil.upload_user_id and can?(:download_counters, fossil)
+    #uled-by
+      &#x2191; by:
+      =User.find(fossil.upload_user_id).name
 
 
 .meta
+  .file-size
+    =sprintf('%.1f', (fossil.attachment_file_size / (1024.0 * 1024.0)) )
+    ==MB (#{/.+\/(.+)$/.match(fossil.attachment_content_type)[1]})
   -if can?(:update, fossil) || can?(:download_counters, fossil)
-    -if fossil.upload_user_id and can?(:download_counters, fossil)
-      #uled-by
-        &#x2191; by:
-        =User.find(fossil.upload_user_id).name
   
     -if can? :update, fossil
       .collection-item-edit
