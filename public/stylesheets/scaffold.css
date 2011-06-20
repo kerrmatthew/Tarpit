@@ -5,6 +5,7 @@
 	http://local.tarpit/stylesheets/scaffold.css?1308543453
 	http://local.tarpit/stylesheets/scaffold.css?1308545719
 	http://local.tarpit/stylesheets/scaffold.css?1308545831
+	http://tarpit.flyingnun.co.nz/stylesheets/scaffold.css?1308551991
 */
 
 html {
@@ -265,9 +266,6 @@ div.field, div.actions {
 	display: block;
 	float: left;
 }
-
-.fileupload-content {
-}
 .collection-items {
   list-style: none;
   list-style-position: outside;
@@ -441,7 +439,6 @@ background: linear-gradient(top, rgba(174,188,191,0.0) 0%, rgba(255,255,255,0.31
 
 .collection-items a {
 	text-decoration: none;
-	font-weight: bold;
 	color: #000;
 	font-size: 10pt;
 }
@@ -617,6 +614,20 @@ span.dl-date {
   color: #000;
 	margin-top: 9px;
 	text-shadow: #fff 0 1px 1px;
+}
+
+.fileupload-content {
+	width: 375px;
+	position: absolute;
+	left: 50%;
+	margin-left: -187px;
+	height: 85px;
+	margin-top: 5em;
+}
+
+.fileupload-content .files.td {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 #footer {
