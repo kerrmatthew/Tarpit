@@ -17,7 +17,7 @@
   .field
     =f.label :description
     %br 
-    =f.text_area :description
+    =f.text_area :description, :size => "22x4"
     
   .field
     =f.label :collection 
@@ -25,8 +25,10 @@
     =f.select :collection_id,
               options_for_select(current_user.can_upload_collections.collect{|n| [n.name, n.id] }, ( @fossil.id ? @fossil.collection.id : params[:collection_id] ))
 
-
+  #clear
     =render :partial => "upload_table"
+  #clear
+
 
 -#  .actions=f.submit 
 

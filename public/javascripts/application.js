@@ -2,6 +2,38 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 
+
+
+
+
+
+
+$( function() {
+  
+  $(".collection-items .meta, .dl-counter-container").hide();
+  
+  $(".collection-items").mouseenter(function() {
+    $(this).children(".meta-spacer").hide().siblings(".meta, .dl-counter-container").fadeIn('fast') ;
+    $(this).children(".main").addClass("hover");
+  });
+      
+
+  $(".collection-items").mouseleave(function() {
+    $(this).children(".meta, div.dl-counter-container").hide().siblings(".meta-spacer").show();
+    $(this).children(".main").removeClass("hover");
+  });
+});
+  
+
+
+
+
+
+
+
+
+
+
 //load typekit fonts
 try{Typekit.load();}catch(e){};
 
@@ -17,4 +49,4 @@ var dl_list = {
       }
     });
   }
- }
+};

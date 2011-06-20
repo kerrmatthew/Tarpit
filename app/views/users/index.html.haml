@@ -1,17 +1,23 @@
-%h1 Listing users
+%h1 Users
+%ul.collection-list
+  -@users.each_with_index do |user, index| 
+    %li{:class => "collection-items #{ "highlight" if user.id == params[:user].to_i }"}
+      .dl-counter-container
+        -if ! user.download_counters.empty?
+          =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => user, :detail_associate => :fossil, :no_assoc_message => "No File" }
+      .main
+        %strong=user.name + " " 
+        =mail_to(user.email, user.email)
+        .desc=user.role
+      
+      .meta
+        .collection-item-edit
+          =link_to 'Edit', edit_user_path(user) 
+          =link_to('Destroy', user_path(user), :confirm => 'Are you sure?', :method => :delete)
+      .meta-spacer 
+      
+    -if ((index+1) % 4) == 0
+      #clear
 
--@users.each do |user| 
-  %li{:class => "collection-items #{ "highlight" if user.id == params[:user].to_i }"}
-    =user.name + " " 
-    =mail_to(user.email, user.email)
-    =" – " 
-    %em=user.role
-    %br
-    -if ! user.download_counters.empty?
-      =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => user, :detail_associate => :fossil, :no_assoc_message => "No File" }
-  
-    .collection-item-edit
-      =link_to 'Edit', edit_user_path(user) 
-      =link_to('Destroy', user_path(user), :confirm => 'Are you sure?', :method => :delete)
-
-=link_to 'New User', new_user_path 
+  #clear
+  .newfile=link_to 'New User', new_user_path 

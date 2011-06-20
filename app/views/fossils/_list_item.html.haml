@@ -1,27 +1,38 @@
-%strong=fossil.name
--if fossil.attachment_is_image?
-  %img{ :src => fossil.attachment.url(:thumb), :class => "thumbnail"} 
-–
-=fossil.description
-%br
-=link_to "Download #{fossil.attachment_file_name}", fossil.attachment.url
-–
-=sprintf('%.2f', (fossil.attachment_file_size / (1024.0 * 1024.0)) )
-==MB (#{/.+\/(.+)$/.match(fossil.attachment_content_type)[1]})
+.dl-counter-container
+  -if can?(:download_counters, fossil) and ! fossil.download_counters.empty?
+    =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => fossil, :detail_associate => :user, :no_assoc_message => "Public User"}
 
-%br
--if can?(:download_counters, fossil) and ! fossil.download_counters.empty?
-  =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => fossil, :detail_associate => :user, :no_assoc_message => "Public User"}
 
--if can? :update, fossil
-  .collection-item-edit
-    =link_to 'Edit', edit_collection_fossil_path(fossil.collection, fossil) 
+.main{:onclick => "window.location='#{fossil.attachment.url}'"}
+
+  -if fossil.attachment_is_image?
+    .thumbnail-cover
+    .thumbnail
+      %img{ :src => fossil.attachment.url(:thumb)}
+
+  &#x2193;
+  %strong=link_to " #{fossil.name}", fossil.attachment.url
+  =sprintf('%.2f', (fossil.attachment_file_size / (1024.0 * 1024.0)) )
+  ==MB (#{/.+\/(.+)$/.match(fossil.attachment_content_type)[1]})
+  =fossil.attachment_file_name
+  .desc
+    =fossil.description
+    
+
+
+.meta
+  -if can?(:update, fossil) || can?(:download_counters, fossil)
+    -if fossil.upload_user_id and can?(:download_counters, fossil)
+      #uled-by
+        &#x2191; by:
+        =User.find(fossil.upload_user_id).name
   
-    -if can? :destroy, fossil 
-      =link_to 'Destroy', [fossil.collection, fossil], :confirm => 'Are you sure?', :method => :delete  
-
--if fossil.upload_user_id and can?(:download_counters, fossil)
-  uploaded by:
-  =User.find(fossil.upload_user_id).name
-
+    -if can? :update, fossil
+      .collection-item-edit
+        =link_to 'Edit', edit_collection_fossil_path(fossil.collection, fossil) 
+      
+        -if can? :destroy, fossil 
+          =link_to 'Destroy', [fossil.collection, fossil], :confirm => 'Are you sure?', :method => :delete
+    
+.meta-spacer
 #clear
