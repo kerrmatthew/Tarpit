@@ -14,6 +14,7 @@
   %strong=link_to " #{fossil.name}", fossil.attachment.url
   
   =fossil.attachment_file_name
+  #clear
   .desc
     =fossil.description
   -if fossil.upload_user_id and can?(:download_counters, fossil)
