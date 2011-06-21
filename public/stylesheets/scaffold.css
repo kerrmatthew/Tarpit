@@ -1,15 +1,3 @@
-/* @override 
-	http://local.tarpit/stylesheets/scaffold.css?1308273945
-	http://local.tarpit/stylesheets/scaffold.css?1308539216
-	http://local.tarpit/stylesheets/scaffold.css?1308540791
-	http://local.tarpit/stylesheets/scaffold.css?1308543453
-	http://local.tarpit/stylesheets/scaffold.css?1308545719
-	http://local.tarpit/stylesheets/scaffold.css?1308545831
-	http://tarpit.flyingnun.co.nz/stylesheets/scaffold.css?1308551991
-	http://local.tarpit/stylesheets/scaffold.css?1308553165
-	http://local.tarpit/stylesheets/scaffold.css?1308564841
-*/
-
 html {
 	padding: 0;
 	margin: 0;
@@ -129,7 +117,7 @@ li.collection-items div.main a:hover {
 	width: 880px;
 }
 
-#user_new, #new_fossil, #new_collection, #new_user, .user_edit, #edit_fossil, .edit_collection, .edit_user {
+#user_new, #new_fossil, #new_collection, #new_user, .user_edit, #edit_fossil, .edit_collection, .edit_user #{
 	width: 254px;
 	margin-right: auto;
 	margin-left: auto;

@@ -22,7 +22,7 @@
   %h2 No Collections are visible. 
   -unless user_signed_in? 
     Try logging in: 
-    =form_for("user", :url => user_session_path) do |f| 
+    =form_for("user", :url => user_session_path, :html => {:id=> 'user_login'}) do |f| 
       %p 
         =f.label :login 
         %br 
