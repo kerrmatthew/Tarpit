@@ -22,20 +22,19 @@ $( function() {
     $(this).children(".meta, div.dl-counter-container").hide().siblings(".meta-spacer").show();
     $(this).children(".main").removeClass("hover");
   });
+  
+  
+  $(".cuj-selector").mouseenter( function() {
+    $(this).children(".cuj-collapse").toggle('blind', '', 'fast');
+  });
+  
+  $(".cuj-selector").mouseleave( function(){
+    $(this).children(".cuj-collapse").toggle('blind', '', 'fast');
+  })
 });
   
 
 
-
-
-
-
-
-
-
-
-//load typekit fonts
-try{Typekit.load();}catch(e){};
 
 
 
@@ -50,3 +49,13 @@ var dl_list = {
     });
   }
 };
+
+
+
+
+
+
+//load typekit fonts
+try{Typekit.load();}catch(e){};
+
+

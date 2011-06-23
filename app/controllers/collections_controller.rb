@@ -3,6 +3,7 @@ class CollectionsController < ApplicationController
   # GET /collections.xml
   load_and_authorize_resource
   #skip_authorize_resource :only => :index
+    
   def index
   #  @collections = Collection.all Superceded by load_and_authorize_resorce
     if session[:last_saved_fossil_id]
@@ -37,7 +38,6 @@ class CollectionsController < ApplicationController
   # POST /collections.xml
   def create
    # @collection = Collection.new(params[:collection])
-
     respond_to do |format|
       if @collection.save
         format.html { redirect_to(collections_path, :notice => 'Collection was successfully created.') }
@@ -52,13 +52,6 @@ class CollectionsController < ApplicationController
   # PUT /collections/1
   # PUT /collections/1.xml
   def update
-    params[:collection][:user_ids] ||= []
-    params[:collection][:set_upload_permissions] ||= []
-    
-    @collection.set_upload_permissions params[:collection][:set_upload_permissions]
-    
-    params[:collection].delete :set_upload_permissions
-
     respond_to do |format|
       if @collection.update_attributes(params[:collection])
         format.html { redirect_to(collections_path, :notice => 'Collection was successfully updated.') }

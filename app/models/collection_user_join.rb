@@ -5,4 +5,5 @@ class CollectionUserJoin < ActiveRecord::Base
 
   scope :can_upload, where(:can_upload => true)
 
+
 end

@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
     collection_user_joins.can_upload.map{|cuj| cuj.collection if cuj.user_id == self.id }
   end
   
-  def can_upload_to(collection)
+  def can_upload?(collection)
     can_upload_collections.include? collection 
   end
   

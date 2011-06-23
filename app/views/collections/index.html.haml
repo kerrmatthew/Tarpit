@@ -7,8 +7,9 @@
   -@collections.each do |collection| 
     .collection-name
       =collection.name
-      =link_to 'Edit', edit_collection_path(collection) if can? :edit, collection
       =link_to 'Destroy', collection, :method => :delete, :confirm => 'Are you sure?' if can? :destroy, collection 
+      =link_to 'Edit', edit_collection_path(collection) if can? :edit, collection
+      =render :partial => 'user_can_upload_form', :locals => {:collection => collection} if can? :manage, collection
 
     %ul.collection-list
       -collection.fossils.each_with_index do |fossil, index| 

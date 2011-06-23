@@ -1,6 +1,8 @@
 /* @override 
 	http://tarpit.flyingnun.co.nz/stylesheets/scaffold.css?1308637932
 	http://tarpit.flyingnun.co.nz/stylesheets/scaffold.css?1308706957
+	http://local.tarpit/stylesheets/scaffold.css?1308799718
+	http://local.tarpit/stylesheets/scaffold.css?1308828193
 */
 
 html {
@@ -456,10 +458,11 @@ div.meta-spacer {
 
 div.collection-name a {
 	float: right;
-	margin-right: 4px;
-	margin-left: 4px;
+	margin-right: 8px;
+	margin-left: 8px;
+	padding-top: 4px;
 }
-#uled-by {
+#uled-by, .notes {
 	float: right;
 	font-size: 7.5pt;
 	padding-top: 14px;
@@ -517,7 +520,106 @@ background: linear-gradient(top, rgba(174,188,191,0.0) 0%, rgba(255,255,255,0.31
 	float: left;
 }
 
+div.cuj-selector {
+	margin-right: 4px;
+	margin-left: 4px;
+	float: right;
+	padding-bottom: 7px;
+	margin-bottom: -7px;
+}
+.cuj-selector h3, .cuj-selector, .cuj-selector label {
+	font-size: 10pt;
+	font-weight: lighter;
+	margin-top: 0;
+	margin-bottom: 0;
+}
 
+.cuj-selector h3 {
+	text-decoration: underline;
+	font-weight: light;
+	color: #666;
+	font-size: 10pt;
+	cursor: pointer;
+	padding-top: 4px;
+	margin-right: 8px;
+	margin-left: 8px;
+}
+
+.cuj-selector label {
+	clear: left;
+	float: left;
+	padding-top: 3px;
+	padding-bottom: 4px;
+}
+.cuj-selector input#collection_submit {
+	padding: 1px;
+	font-size: 9pt;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+.cuj-collapse {
+	min-width: 80px;
+	
+  border-radius: 0 0 4px 4px ;
+  -webkit-border-radius: 0 0 4px 4px ;
+  -moz-border-radius:0 0 4px 4px ;
+	background-color: #f6fcfc;
+	
+	box-shadow: 0 2px 4px #ccc;
+  -webkit-box-shadow: 0 2px 4px #ccc;
+  -moz-box-shadow: 0 2px 4px #ccc;
+	margin-top: 6px;
+	position: absolute;
+	display: none;
+	padding-top: 4px;
+	border-top: 1px solid #d2dbd5;
+}
+
+.cuj-collapse form {
+	padding-right: 6px;
+	padding-left: 6px;
+	padding-bottom: 6px;
+	width: 120px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 0px;
+	filter: none; /* IE6-9 */
+	background: none; /* W3C */
+	
+	
+	-moz-border-radius: none;
+	border-radius: none;
+	
+	box-shadow: none;
+	border-top: none;
+	border-bottom: none;
+	margin-bottom: auto;
+
+	
+	
+	
+	
+}
+
+.cuj-collapse .notes {
+	float: right;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.cuj-collapse div.user-list {
+	clear: both;
+}
+
+.cuj-collapse .actions {
+	margin-bottom: 0;
+}
+
+div.cuj-selector form .check-box {
+	width: 12px;
+	float: right;
+}
 .collection-items, .collection-items a {
   color: #666666;
 	font-size: 9pt;
@@ -538,6 +640,9 @@ background: linear-gradient(top, rgba(174,188,191,0.0) 0%, rgba(255,255,255,0.31
 	display: inline-block;
 	float: right;
 }
+
+
+
 
 .collection-item-edit, .collection-item-edit a {
   font-size: 9pt;
