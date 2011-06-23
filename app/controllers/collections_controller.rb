@@ -56,6 +56,7 @@ class CollectionsController < ApplicationController
       if @collection.update_attributes(params[:collection])
         format.html { redirect_to(collections_path, :notice => 'Collection was successfully updated.') }
         format.xml  { head :ok }
+        format.js { render 'update.js' }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @collection.errors, :status => :unprocessable_entity }

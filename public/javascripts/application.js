@@ -25,12 +25,17 @@ $( function() {
   
   
   $(".cuj-selector").mouseenter( function() {
-    $(this).children(".cuj-collapse").toggle('blind', '', 'fast');
+    $(this).children(".cuj-collapse").show('blind', '', 'fast').addClass("shown").removeClass("hidden");
   });
   
   $(".cuj-selector").mouseleave( function(){
-    $(this).children(".cuj-collapse").toggle('blind', '', 'fast');
+    $(this).children(".cuj-collapse").hide('blind', '', 'fast').addClass("hidden").removeClass("shown");
+  });
+  
+  $(".cuj-collapse form").find("input").change(function(){
+    $(this).parents("form").submit();
   })
+  
 });
   
 

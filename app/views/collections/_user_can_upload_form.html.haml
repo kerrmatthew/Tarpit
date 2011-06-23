@@ -2,16 +2,15 @@
   .cuj-selector
     %h3
       Users
-    .cuj-collapse
+    .cuj-collapse{:id => "collection-#{collection.id}"}
     
-      =form_for collection do |f|
+      =form_for collection, :remote => true, :format => :js do |f|
         .notes="can upload"
         .user-list 
           -collection.collection_user_joins.each do |cuj|
             =f.fields_for :collection_user_joins, cuj do |cuj_fields| 
               =cuj_fields.label cuj.user.name
               =cuj_fields.check_box :can_upload, {:class => 'check-box'}
-          .actions= f.submit "update"
         #clear
         .notes
           Edit collection to add users.

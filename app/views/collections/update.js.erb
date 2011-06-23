@@ -1,0 +1,4 @@
+$("#collection-<%=params[:id]%>").effect('highlight');
+if ($("#collection-<%=params[:id]%>").hasClass("hidden")){
+  $("#collection-<%=params[:id]%>").trigger("mouseleave");
+}
