@@ -1,4 +1,7 @@
-/* @override http://tarpit.flyingnun.co.nz/stylesheets/scaffold.css?1308637932 */
+/* @override 
+	http://tarpit.flyingnun.co.nz/stylesheets/scaffold.css?1308637932
+	http://tarpit.flyingnun.co.nz/stylesheets/scaffold.css?1308706957
+*/
 
 html {
 	padding: 0;
@@ -18,9 +21,7 @@ ul {
 }
 
 ul.collection-list {
-	background-color: #fff;
-	width: 860px;
-	margin-top: 0;
+	background-color: #f7f7f7;
 	padding: 10px;
   border-radius: 0 0  4px 4px;
   -webkit-border-radius: 0 0 4px 4px;
@@ -30,8 +31,7 @@ ul.collection-list {
   -webkit-box-shadow: 0 2px 4px #ccc;
   -moz-box-shadow: 0 2px 4px #ccc;
 	z-index: 1;
-	float: left;
-	margin-bottom: 31px;
+	clear: left;
 }
 
 div.newfile {
@@ -67,7 +67,7 @@ ul ul#meta {
 
 #indexes li {
 	padding-bottom: 0;
-	margin: 0 5px;
+	margin: 0;
 	list-style-type: none;
 	display: block;
 	float: left;
@@ -396,6 +396,10 @@ background: linear-gradient(top, #ffffff 0%,#f4f4f4 100%);
 	font-size: 9pt;
 }
 
+div.main #clear {
+	clear: none;
+}
+
 div.file-size {
 	font-size: 7.5pt;
 	text-align: left;
@@ -463,13 +467,16 @@ div.collection-name a {
 
 div.desc {
 	font-size: 9pt;
-	float: left;
+	display: block;
 }
+
+
 
 div.collection-name {
 	padding-top: 6px;
 	padding-bottom: 6px;
 	background-color: #fefefe;
+	margin-top: 2em;
 }
 
 
