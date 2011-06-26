@@ -2,7 +2,7 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 
-$(function(){ //hides and shows the downlaod counters on the main page
+$(function(){ //hides and shows the download counters on the main page
   $(".Collection-items .meta, .dl-counter-container").hide();
   
   $(".Collection-items").mouseenter(function() {
@@ -18,7 +18,7 @@ $(function(){ //hides and shows the downlaod counters on the main page
 })
 
 
-var dl_list = { 
+var dl_list = { // tell the dl list to hide and show itself. 
   toggle_and_bring_to_front : function(parent_associate){
     $('#dl-list-' + parent_associate + '').toggle('blind', '', 'fast') ;
     
