@@ -1,0 +1,4 @@
+.cuj-selector
+  %h3=title
+  .cuj-collapse{:id => "#{object.class}-#{object.id}"}=render :partial => partial, :locals => { :object => object }       
+  #clear

@@ -1,0 +1,10 @@
+=form_for object, :remote => true, :format => :js do |f|
+  .notes="can upload"
+  .user-list 
+    -object.collection_user_joins.each do |cuj|
+      =f.fields_for :collection_user_joins, cuj do |cuj_fields| 
+        =cuj_fields.label cuj.user.name
+        =cuj_fields.check_box :can_upload, {:class => 'check-box'}
+  #clear
+  .notes
+    Edit collection to add users.

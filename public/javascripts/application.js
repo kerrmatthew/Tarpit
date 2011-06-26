@@ -2,45 +2,20 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 
-
-
-
-
-
-
-$( function() {
+$(function(){ //hides and shows the downlaod counters on the main page
+  $(".Collection-items .meta, .dl-counter-container").hide();
   
-  $(".collection-items .meta, .dl-counter-container").hide();
-  
-  $(".collection-items").mouseenter(function() {
+  $(".Collection-items").mouseenter(function() {
     $(this).children(".meta-spacer").hide().siblings(".meta, .dl-counter-container").fadeIn('fast') ;
     $(this).children(".main").addClass("hover");
   });
       
 
-  $(".collection-items").mouseleave(function() {
+  $(".Collection-items").mouseleave(function() {
     $(this).children(".meta, div.dl-counter-container").hide().siblings(".meta-spacer").show();
     $(this).children(".main").removeClass("hover");
   });
-  
-  
-  $(".cuj-selector").mouseenter( function() {
-    $(this).children(".cuj-collapse").show('blind', '', 'fast').addClass("shown").removeClass("hidden");
-  });
-  
-  $(".cuj-selector").mouseleave( function(){
-    $(this).children(".cuj-collapse").hide('blind', '', 'fast').addClass("hidden").removeClass("shown");
-  });
-  
-  $(".cuj-collapse form").find("input").change(function(){
-    $(this).parents("form").submit();
-  })
-  
-});
-  
-
-
-
+})
 
 
 var dl_list = { 
