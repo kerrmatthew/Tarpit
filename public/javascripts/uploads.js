@@ -1,32 +1,27 @@
 $(function () {
-  $('#fileupload').fileupload({
+  
+  if (! jQuery.browser.mozilla){
+
+    $('#fileupload').fileupload({
+      maxChunkSize: 10000000, // 10 MB  
         dropZone: $('#fileupload'),
         maxNumberOfFiles: 1,
-        maxChunkSize: 1000000, // 10 MB
         multipart: true,
         autoUpload: true,
-        maxFileSize: 450000000 //300 MB
-        
-/*
-        uploadTemplate: function () {
-            return $('<tr><td><\/td>' +
-                    '<td class="file_upload_progress"><div><\/div><\/td>' +
-                    '<td class="file_upload_cancel">' +
-                    '<button class="ui-state-default ui-corner-all" title="Cancel">' +
-                    '<span class="ui-icon ui-icon-cancel">Cancel<\/span>' +
-                    '<\/button><\/td><\/tr>');
-        },
-        downloadTemplate: function () {
-            return $('<tr><td><img alt="Photo" width="80" height="80" src="<\/td><\/tr>');
-        },
-
-        done: function () {
-          $("#file_upload_container").hide();
-        }
-        
-        
-        */
-  });
+        maxFileSize: 450000000 //450 MB
+      
+    });
+  } else {
+    
+    $('#fileupload').fileupload({
+          dropZone: $('#fileupload'),
+          maxNumberOfFiles: 1,
+          multipart: true,
+          autoUpload: true,
+          maxFileSize: 120000000 //120 MB
+     
+    });
+  };
   $('.upload').bind('fileuploaddone', function (e, data) { 
     $.each(data.files, function (index, file) {
       //re = RegExp(/collections\/(\d)/);
