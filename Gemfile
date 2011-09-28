@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails', '3.1.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg', '0.10.1'
+gem 'pg'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -36,10 +36,18 @@ gem 'pg', '0.10.1'
 gem 'devise'
 gem 'devise_invitable'
 
-gem 'jquery-rails', '>= 0.2.6'
-gem 'thor', '>= 0.14.4'
+group :assets do
+#   gem 'sass-rails', "  ~> 3.1.0"
+#   gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
+  gem 'yui-compressor'
+end
+
+
+gem 'jquery-rails'
+#gem 'thor', '>= 0.14.4'
 gem 'paperclip'
 gem "cancan"
 
 gem 'haml'
-gem 'remotipart', :git => 'git://github.com/JangoSteve/remotipart.git', :branch => 'latest-and-greatest'
+# gem 'remotipart', :git => 'git://github.com/JangoSteve/remotipart.git', :branch => 'latest-and-greatest'
