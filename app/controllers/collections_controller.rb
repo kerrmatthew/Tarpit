@@ -10,6 +10,7 @@ class CollectionsController < ApplicationController
       @last_fossil = Fossil.find(session[:last_saved_fossil_id])
       session[:last_saved_fossil_id] = nil
     end
+    
 
     respond_to do |format|
       format.html # index.html.erb

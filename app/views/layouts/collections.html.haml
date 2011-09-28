@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title
+      Tarpit
+    
+    =stylesheet_link_tag :application, :collections
+    =javascript_include_tag :application, 'http://use.typekit.com/xhx3evw.js'
+    =csrf_meta_tag 
+    =content_for :head
+  %body
+    %ul#indexes
+      %li
+        =link_to_unless_current 'Collections', collections_path do  
+          %span.current
+            Collections
+      
+      -if can? :manage, User.all
+        %li
+          =link_to_unless_current 'Users', users_path do
+            %span.current
+              Users
+              
+      %li.notice=notice if notice
+    
+      %li.alert=alert if alert
+                          
+      %ul#meta
+        =render 'devise/menu/registration_items'
+        =render 'devise/menu/login_items'
+    
+    #collections-container
+      #collections-padder
+        =yield
+    
+    #main-wrapper
+      #main-container
+        #instructions
+          select a Collection on the left.
+    
+      #footer-container
+        #footer
+          =render 'common/footer'
