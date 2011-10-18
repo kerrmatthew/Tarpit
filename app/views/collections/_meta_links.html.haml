@@ -1,0 +1,7 @@
+.collection-meta
+  
+  =link_to 'Destroy', collection, :method => :delete, :confirm => 'Are you sure?' if can? :destroy, collection 
+  
+  =link_to 'Edit', edit_collection_path(collection) if can? :edit, collection
+  
+  =render :partial => 'common/popover', :locals => {:title => 'Users', :object => collection, :partial => 'users/user_can_upload_form'} if can?(:manage, collection) && ! collection.collection_user_joins.empty?

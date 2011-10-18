@@ -17,7 +17,9 @@ class Fossil < ActiveRecord::Base
   has_attached_file :attachment,
                     :url => "/files/:id/download/:style",
                     :path => ':rails_root/assets/:class/:id/:style/:filename',
-                    :styles => {:thumb => "45x45#" }
+                    :styles => {  :thumb => "45x45#",
+                                  :preview => "128x128#"
+                                }
 
   before_attachment_post_process :allow_only_images
 

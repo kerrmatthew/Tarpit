@@ -1,0 +1,3 @@
+$(".collection-name").removeClass("current");
+$("#collection-list-item-<%= @collection.id -%>").addClass("current").children(".chevron").show();
+$("#main-container").html("<% @collection.fossils.each do |fossil| -%><%=j render( :partial => "fossils/list_item", :locals => { :fossil => fossil } ) %> <% end -%>");

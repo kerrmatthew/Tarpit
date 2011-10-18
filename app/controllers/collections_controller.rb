@@ -18,6 +18,12 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def show
+    respond_to do |format| 
+      format.html
+      format.js {  render 'show.js' }
+    end
+  end
 
   # GET /collections/new
   # GET /collections/new.xml

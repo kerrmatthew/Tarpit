@@ -1,40 +1,38 @@
-.dl-counter-container
-  -if can?(:download_counters, fossil) and ! fossil.download_counters.empty?
-    =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => fossil, :detail_associate => :user, :no_assoc_message => "Public User"}
-
-
-.main{:onclick => "window.location='#{fossil.attachment.url}'"}
-
-  -if fossil.attachment_is_image?
-    .thumbnail-cover
-    .thumbnail
-      %img{ :src => fossil.attachment.url(:thumb)}
-
-  &#x2193;
-  %strong=link_to " #{fossil.name}", fossil.attachment.url
+.fossil-item
+  .dl-counter-container
+    -if can?(:download_counters, fossil) and ! fossil.download_counters.empty?
+      =render :partial => "download_counters/list_download_counters", :locals => {:parent_associate => fossil, :detail_associate => :user, :no_assoc_message => "Public User"}
   
-  =fossil.attachment_file_name
-  #clear
-  .desc
-    =fossil.description
-  -if fossil.upload_user_id and can?(:download_counters, fossil)
-    #uled-by
-      &#x2191; by:
-      =User.find(fossil.upload_user_id).name
-
-
-.meta
-  .file-size
-    =sprintf('%.1f', (fossil.attachment_file_size / (1024.0 * 1024.0)) )
-    ==MB (#{/.+\/(.+)$/.match(fossil.attachment_content_type)[1]})
-  -if can?(:update, fossil) || can?(:download_counters, fossil)
-  
-    -if can? :update, fossil
-      .collection-item-edit
-        =link_to 'Edit', edit_collection_fossil_path(fossil.collection, fossil) 
+  .thumbnail{ :style => "background-image: url(#{ fossil.attachment_is_image? ? fossil.attachment.url(:preview) : '/images/not_image.png'  })" }
+    .meta
+      .file-size
+        =sprintf('%.1f', (fossil.attachment_file_size / (1024.0 * 1024.0)) )
+        ==MB (#{/.+\/(.+)$/.match(fossil.attachment_content_type)[1]})
+      -if can?(:update, fossil) || can?(:download_counters, fossil)
       
-        -if can? :destroy, fossil 
-          =link_to 'Destroy', [fossil.collection, fossil], :confirm => 'Are you sure?', :method => :delete
+        -if can? :update, fossil
+          .collection-item-edit
+            =link_to 'Edit', edit_collection_fossil_path(fossil.collection, fossil) 
+          
+            -if can? :destroy, fossil 
+              =link_to 'Destroy', [fossil.collection, fossil], :confirm => 'Are you sure?', :method => :delete
+
+  .main{:onclick => "window.location='#{fossil.attachment.url}'"}
+  
+  
+    &#x2193;
+    %strong=link_to " #{fossil.name}", fossil.attachment.url
     
-.meta-spacer
-#clear
+    =fossil.attachment_file_name
+    #clear
+    .desc
+      =fossil.description
+    -if fossil.upload_user_id and can?(:download_counters, fossil)
+      #uled-by
+        &#x2191; by:
+        =User.find(fossil.upload_user_id).name
+  
+  
+      
+  .meta-spacer
+  #clear
