@@ -36,7 +36,11 @@
     #main-wrapper
       #main-container
         #instructions
-          select a Collection on the left.
+          -if content_for? :instructions
+            =content_for :instructions
+          -else
+            select a Collection on the left.
+
     
       #footer-container
         #footer

@@ -27,7 +27,7 @@ class FossilsController < ApplicationController
   def new
 #    @fossil = Fossil.new
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render :layout => "collections" } # new.html.erb
       format.xml  { render :xml => @fossil }
     end
   end

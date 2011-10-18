@@ -1,5 +1,5 @@
-%h1 New collection
+=render :partial => 'collections/list'
 
-=render 'form'
-
-=link_to 'Back', collections_path 
+-content_for :instructions do
+  %h1 New collection
+  =render 'form'

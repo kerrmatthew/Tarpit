@@ -1,7 +1,8 @@
 class CollectionsController < ApplicationController
   # GET /collections
   # GET /collections.xml
-  load_and_authorize_resource
+  load_and_authorize_resource :except => :index
+  
   #skip_authorize_resource :only => :index
     
   def index
@@ -82,4 +83,7 @@ class CollectionsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  
+  
 end

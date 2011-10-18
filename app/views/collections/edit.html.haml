@@ -1,6 +1,4 @@
-%h1 Editing collection
-
-=render 'form'
-
-
-=link_to 'Back', collections_path
+=render :partial => 'collections/list'
+-content_for :instructions do 
+  =render 'form'
+  

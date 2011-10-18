@@ -1,6 +1,5 @@
-=link_to(collection_path(collection), :remote => true, :method => :get , :class => "collection-name", :id => "collection-list-item-#{collection.id}" ) do 
+=link_to(collection_path(collection), :remote => true, :method => :get , :class => "collection-name #{'current' if params[:collection_id].to_i==collection.id}", :id => "collection-list-item-#{collection.id}" ) do 
   .chevron
     »
-
   .collection-box
     =collection.name

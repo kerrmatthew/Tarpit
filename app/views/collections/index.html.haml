@@ -1,23 +1,21 @@
--if can? :create, Collection
-  #create-new=link_to 'New Collection', new_collection_path 
+=render :partial => 'collections/list'
 
--if @collections.count > 0 
-  -@collections.each do |collection| 
-    =render :partial => 'list_item', :locals => { :collection => collection }
-        
--else
+-unless @collections.count > 0 
   %h2 No Collections are visible. 
-  -unless user_signed_in? 
-    Try logging in: 
-    =form_for("user", :url => user_session_path, :html => {:id=> 'user_login'}) do |f| 
-      %p 
-        =f.label :login 
-        %br 
-        =f.text_field :login 
-  
-      %p 
-        =f.label :password 
-        %br
-        =f.password_field :password 
+  =content_for :instructions do 
+    -unless user_signed_in? 
+      =form_for("user", :url => user_session_path, :html => {:id=> 'user_login'}) do |f| 
+        %p 
+          Try logging in: 
+
+        %p 
+          =f.label :login 
+          %br 
+          =f.text_field :login 
     
-      %p= f.submit "Sign in"
+        %p 
+          =f.label :password 
+          %br
+          =f.password_field :password 
+      
+        %p= f.submit "Sign in"

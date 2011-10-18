@@ -1,3 +1,5 @@
 $(".collection-name").removeClass("current");
+
 $("#collection-list-item-<%= @collection.id -%>").addClass("current").children(".chevron").show();
-$("#main-container").html("<% @collection.fossils.each do |fossil| -%><%=j render( :partial => "fossils/list_item", :locals => { :fossil => fossil } ) %> <% end -%>");
+
+$("#main-container").html("<% @collection.fossils.each do |fossil| -%><%=j render( :partial => "fossils/list_item", :locals => { :fossil => fossil } ) -%><% end -%><%= can?(:manage, @collection) ? j(link_to "Add File", new_collection_fossil_path(@collection), :class=> "button") : "" -%>");

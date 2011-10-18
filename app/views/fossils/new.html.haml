@@ -1,5 +1,4 @@
-%h1 New file
+=render :partial => 'collections/list'
 
-= render 'form' 
-
-= link_to 'Back', collection_fossils_path(@collection)
+-content_for :instructions do
+  = render 'form' 
