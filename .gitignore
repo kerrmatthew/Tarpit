@@ -7,3 +7,5 @@ public/system/*
 public/.htaccess
 assets/*
 assets/
+!app/assets/
+!app/assets/*
