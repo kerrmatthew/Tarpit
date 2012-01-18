@@ -7,7 +7,7 @@
 //= require jquery.fileupload
 //= require jquery.fileupload-ui
 //= require popovers
-//=require uploads
+//= require uploads
 
 
 // Place your application-specific JavaScript functions and classes here
