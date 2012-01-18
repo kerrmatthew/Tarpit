@@ -6,6 +6,15 @@
 	http://0.0.0.0:3000/assets/application.css?body=1
 */
 
+
+
+/* 
+*= require jquery.fileupload-ui
+*/
+
+
+
+
 html {
 	padding: 0;
 	margin: 0;
@@ -141,10 +150,19 @@ li.collection-items div.main a:hover {
 	float: right;
 }
 
+#main-container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 20px;
+	padding-left: 20px;
+	width: 880px;
+}
 
 #user_new, #new_fossil, #new_collection, #new_user, .user_edit, #edit_fossil, .edit_collection, .edit_user, form#user_login, form.upload {
 	width: 254px;
-  padding: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 15px;
 	
 	background: #eeeeee; /* Old browsers */
 background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
@@ -163,63 +181,7 @@ background: linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* W3C */
 	border-top: 1px solid #fff;
 	border-bottom: 1px solid #aaa;
 	font-size: 9pt;
-  margin-top: 11%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-a.button {
-  width: 33%;
-  display: block;
-  position: relative;
-  float: left;
-  margin: 5% 33%;
-  text-align: center;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-	background: #eeeeee; /* Old browsers */
-background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Opera11.10+ */
-background: -ms-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* IE10+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
-background: linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* W3C */
-	
-	
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	
-	box-shadow: 0 0px 2px #ccc;
-	border-top: 1px solid #fff;
-	border-bottom: 1px solid #aaa;
-	
-	text-decoration: none;
-	font-size: 12pt;
-	font-weight: lighter;
-	text-shadow: #fffeff 0 1px 0;
-	
-}
-
-a.button:hover {
-  	background: #d6d6d6; /* Old browsers */
-  background: -moz-linear-gradient(top, #f4f4f4 0%, #d6d6d6 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f4f4), color-stop(100%,#d6d6d6)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #f4f4f4 0%,#d6d6d6 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #f4f4f4 0%,#d6d6d6 100%); /* Opera11.10+ */
-  background: -ms-linear-gradient(top, #f4f4f4 0%,#d6d6d6 100%); /* IE10+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#d6d6d6',GradientType=0 ); /* IE6-9 */
-  background: linear-gradient(top, #f4f4f4 0%,#d6d6d6 100%); /* W3C */
-  
-  	
-  	-moz-border-radius: 4px;
-  	border-radius: 4px;
-  	
-  	box-shadow: 0 2px 2px #aaaaaa;
-  	border-top: 1px solid #fff;
-  	border-bottom: 1px solid #aaa;
-  	cursor: pointer;
-    color: #000;
+	margin-bottom: 157px;
 }
 
 .collection-user label {
@@ -334,7 +296,8 @@ body {
 	padding: 0;
 }
 
-
+body, p, ol, ul, td {
+}
 
 pre {
   background-color: #eee;
@@ -408,6 +371,42 @@ div.errors {
 	margin-bottom: 0;
 }
 
+div.meta, div.main, div.meta-spacer {
+	font-size: 9pt;
+	float: left;
+	width: 195px;
+	padding: 4px;
+	margin-right: 4px;
+	margin-left: 4px;
+	margin: 0;
+}
+
+ div.main {
+	background: #f4f4f4; /* Old browsers */
+background: -moz-linear-gradient(top, #ffffff 0%, #f4f4f4 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f4f4f4)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ffffff 0%,#f4f4f4 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ffffff 0%,#f4f4f4 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, #ffffff 0%,#f4f4f4 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f4f4f4',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, #ffffff 0%,#f4f4f4 100%);
+	min-height: 55px;
+	-webkit-border-radius: 4px; 
+	-moz-border-radius: 4px; 
+	border-radius: 4px; 
+	background-color: #fefffe;
+	/*background-image: url(/images/light_hatch.png);*/
+	
+	box-shadow: 0 0px 2px #ccc;
+	-webkit-box-shadow: 0 0px 2px #ccc;
+	-moz-box-shadow: 0 0px 2px #ccc;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #aaa;
+
+
+	cursor: pointer;
+	font-size: 9pt;
+}
 
 div.main #clear {
 	clear: none;
@@ -491,6 +490,44 @@ div.collection-name {
 	padding-bottom: 6px;
 	background-color: #fefefe;
 	margin-top: 2em;
+}
+
+
+.collection-items .thumbnail { 
+  padding: 0;
+	box-shadow: 0 1px 2px #aaa;
+	overflow: hidden;
+	width: 45px;
+	height: 45px;
+	
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	text-align: center;
+	margin-right: 4px;
+	float: left;
+}
+
+.thumbnail-cover {
+	opacity: 0.3;
+		border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+
+background: -moz-linear-gradient(top, rgba(174,188,191,0.0) 0%, rgba(255,255,255,0.31) 50%, rgba(10,14,10,0.31) 51%, rgba(10,8,9,0.11) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(174,188,191,0.0)), color-stop(50%,rgba(255,255,255,0.31)), color-stop(51%,rgba(10,14,10,0.31)), color-stop(100%,rgba(10,8,9,0.11))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(174,188,191,0.0) 0%,rgba(255,255,255,0.31) 50%,rgba(10,14,10,0.31) 51%,rgba(10,8,9,0.11) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(174,188,191,0.0) 0%, rgba(255,255,255,0.31) 50%, rgba(10,14,10,0.31) 51%, rgba(10,8,9,0.11) 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, rgba(174,188,191,0.0) 0%, rgba(255,255,255,0.31) 50%, rgba(10,14,10,0.31) 51%, rgba(10,8,9,0.11) 100%); /* IE10+ */
+background: linear-gradient(top, rgba(174,188,191,0.0) 0%, rgba(255,255,255,0.31) 50%, rgba(10,14,10,0.31) 51%, rgba(10,8,9,0.11) 100%); /* W3C */
+	position: relative;
+	width: 45px;
+	height: 45px;
+	
+	margin-top: -45px;
+	top: 45px;
+	padding: 0;
+	float: left;
 }
 
 div.cuj-selector {
