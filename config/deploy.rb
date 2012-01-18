@@ -40,6 +40,7 @@ end
 
 #before "bundle:install", :set_config_for_pg_gem
 
+load 'deploy/assets'
 
 namespace :paperclip do
   desc "Symlink the assets folder"
