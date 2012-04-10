@@ -7,6 +7,10 @@ set :deploy_to, '/Library/WebServer/vhosts/tarpit/'
 set :use_sudo, false
 set :scm, :git
 
+set :rvm_ruby_string, '1.9.3@tarpit'
+set :rvm_type, :system
+
+
 default_run_options[:pty] = true
 
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
@@ -29,6 +33,7 @@ role :db,  "66.209.94.37", :primary => true # This is where Rails migrations wil
 # end
 
 require "bundler/capistrano"
+require "rvm/capistrano"
 
 require File.split(File.expand_path(__FILE__)).first + "/passenger_deploy.rb"
 

@@ -130,6 +130,8 @@ GEM
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.8.0)
+    rvm-capistrano (1.0.2)
+      capistrano (>= 2.0.0)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -164,5 +166,6 @@ DEPENDENCIES
   pg
   rails (= 3.1.0)
   rspec-rails
+  rvm-capistrano
   uglifier
   yui-compressor
